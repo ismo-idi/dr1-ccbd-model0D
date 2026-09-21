@@ -1,0 +1,130 @@
+{
+  "units": "metres, radians",
+  "frame": "right-handed; X courtyard right, Y toward rear buildings, Z up; no georeference",
+  "models": [
+    {
+      "name": "courtyard",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "static": true,
+      "triangles": 1188
+    },
+    {
+      "name": "pergola",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "static": true,
+      "triangles": 7668
+    },
+    {
+      "name": "campus_buildings",
+      "pose": [
+        0,
+        12,
+        0,
+        0,
+        0,
+        0
+      ],
+      "static": true,
+      "triangles": 1128
+    },
+    {
+      "name": "um6p_landmark",
+      "pose": [
+        -7,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "static": true,
+      "triangles": 564
+    },
+    {
+      "name": "landscaping",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "static": true,
+      "triangles": 14072
+    },
+    {
+      "name": "uav_1",
+      "pose": [
+        -3.6,
+        -8.2,
+        0.12,
+        0,
+        0,
+        0.3
+      ],
+      "static": true,
+      "triangles": 460
+    },
+    {
+      "name": "uav_2",
+      "pose": [
+        3.6,
+        -8.2,
+        0.12,
+        0,
+        0,
+        -0.3
+      ],
+      "static": true,
+      "triangles": 460
+    }
+  ],
+  "pergola_dimensions": [
+    28,
+    18
+  ],
+  "canopy_height_range": [
+    8.6,
+    9.95
+  ],
+  "landmark_blocks": 4,
+  "landmark_top_to_bottom": "UM6P",
+  "uav_center_spacing": 7.2,
+  "landmark_block_yaw_degrees_top_to_bottom": [
+    12,
+    -12,
+    12,
+    -12
+  ],
+  "building_translation_y": 12,
+  "pergola_to_front_facade_gap": 13.8,
+  "reserved_forecourt": {
+    "x": [
+      -9,
+      9
+    ],
+    "y": [
+      -22,
+      -4
+    ],
+    "area_m2": 324,
+    "status": "unmarked clear staging reserve; not a certified flight envelope or capacity claim"
+  },
+  "physics_plugin": false,
+  "assets": "first-party procedural OBJ; no external runtime assets"
+}

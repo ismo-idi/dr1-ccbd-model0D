@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.10">
+  <world name="um6p_demo">
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <scene>
+      <ambient>.65 .65 .65 1</ambient>
+      <background>.55 .72 .86 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <light name="warm_sun" type="directional">
+      <pose>0 0 20 0 0 0</pose>
+      <diffuse>.95 .86 .72 1</diffuse>
+      <specular>.2 .2 .2 1</specular>
+      <direction>-.45 .5 -.85</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+    <include>
+      <uri>model://courtyard</uri>
+      <name>courtyard</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://pergola</uri>
+      <name>pergola</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://campus_buildings</uri>
+      <name>campus_buildings</name>
+      <pose>0 12 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://um6p_landmark</uri>
+      <name>um6p_landmark</name>
+      <pose>-7 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://landscaping</uri>
+      <name>landscaping</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://uav_1</uri>
+      <name>uav_1</name>
+      <pose>-3.6 -8.2 0.12 0 0 0.3</pose>
+      <static>false</static>
+    </include>
+    <include>
+      <uri>model://uav_2</uri>
+      <name>uav_2</name>
+      <pose>3.6 -8.2 0.12 0 0 -0.3</pose>
+      <static>false</static>
+    </include>
+    <physics name="kinematic_clock" type="ignored">
+      <max_step_size>0.02</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <plugin filename="CampusKinematics" name="campus::Kinematics">
+      <wave>1</wave>
+      <route_1>-3.6 -8.2 2.8 3.6 -40 2.8 3.6 -40 0.12</route_1>
+      <route_2>3.6 -8.2 2.8 -3.6 -40 2.8 -3.6 -40 0.12</route_2>
+    </plugin>
+    <model name="landing_pads">
+      <static>true</static>
+      <link name="body">
+        <visual name="pad_0">
+          <pose>-3.6 -40 .06 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.13 .15 .17 1</ambient>
+            <diffuse>.13 .15 .17 1</diffuse>
+          </material>
+        </visual>
+        <visual name="pad_1">
+          <pose>3.6 -40 .06 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.13 .15 .17 1</ambient>
+            <diffuse>.13 .15 .17 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="demo_apron">
+      <static>true</static>
+      <link name="body">
+        <visual name="paving">
+          <pose>0 -35 -.15 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>26 20 .3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.60 .55 .44 1</ambient>
+            <diffuse>.60 .55 .44 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

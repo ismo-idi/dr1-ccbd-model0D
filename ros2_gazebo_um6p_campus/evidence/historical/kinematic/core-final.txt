@@ -1,0 +1,2 @@
+wave=1 complete t=51.92 min_pair=3.53161 min_ball=1e+09 yield_ticks=213
+wave=2 complete t=54.22 min_pair=3.53027 min_ball=4.36665 yield_ticks=243

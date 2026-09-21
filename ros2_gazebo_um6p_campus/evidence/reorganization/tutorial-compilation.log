@@ -1,0 +1,65 @@
+Imported 44 source files for campus_environment
+Imported 42 source files for kinematic_demos
+note: Running TeX ...
+warning: chapters.tex:104: Underfull \hbox (badness 10000) in paragraph at lines 104--104
+warning: chapters.tex:105: Underfull \hbox (badness 10000) in paragraph at lines 105--105
+warning: chapters.tex:107: Underfull \hbox (badness 1275) in paragraph at lines 106--107
+warning: chapters.tex:112: Underfull \hbox (badness 1275) in paragraph at lines 111--112
+warning: chapters.tex:212: Underfull \hbox (badness 10000) in paragraph at lines 211--212
+warning: chapters.tex:215: Underfull \hbox (badness 1990) in paragraph at lines 214--215
+warning: chapters.tex:221: Underfull \hbox (badness 4647) in paragraph at lines 220--221
+warning: chapters.tex:288: Underfull \hbox (badness 1028) in paragraph at lines 287--288
+note: Rerunning TeX because "tutorial.toc" changed ...
+warning: chapters.tex:104: Underfull \hbox (badness 10000) in paragraph at lines 104--104
+warning: chapters.tex:105: Underfull \hbox (badness 10000) in paragraph at lines 105--105
+warning: chapters.tex:107: Underfull \hbox (badness 1275) in paragraph at lines 106--107
+warning: chapters.tex:112: Underfull \hbox (badness 1275) in paragraph at lines 111--112
+warning: chapters.tex:212: Underfull \hbox (badness 10000) in paragraph at lines 211--212
+warning: chapters.tex:215: Underfull \hbox (badness 1990) in paragraph at lines 214--215
+warning: chapters.tex:221: Underfull \hbox (badness 4647) in paragraph at lines 220--221
+warning: chapters.tex:288: Underfull \hbox (badness 1028) in paragraph at lines 287--288
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `tutorial.log` (23.2041015625 KiB)
+note: Writing `tutorial.pdf` (518.1572265625 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+Creator:         LaTeX with hyperref
+Producer:        xdvipdfmx (0.1)
+CreationDate:    Sun Sep 20 02:05:24 2026 +00
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           37
+Encrypted:       no
+Page size:       595.28 x 841.89 pts (A4)
+Page rot:        0
+File size:       530593 bytes
+Optimized:       no
+PDF version:     1.5
+note: Running TeX ...
+note: Rerunning TeX because "tutorial.toc" changed ...
+note: Running xdvipdfmx ...
+note: Writing `tutorial.log` (21.69921875 KiB)
+note: Writing `tutorial.pdf` (772.5361328125 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+Creator:         LaTeX with hyperref
+Producer:        xdvipdfmx (0.1)
+CreationDate:    Sun Sep 20 02:05:26 2026 +00
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           39
+Encrypted:       no
+Page size:       595.28 x 841.89 pts (A4)
+Page rot:        0
+File size:       791077 bytes
+Optimized:       no
+PDF version:     1.5

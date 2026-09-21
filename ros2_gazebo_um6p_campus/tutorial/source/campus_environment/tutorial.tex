@@ -1,0 +1,24 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,microtype,graphicx,xcolor,booktabs,longtable,array,listings,fancyhdr,hyperref}
+\definecolor{campusred}{HTML}{9F302A}
+\hypersetup{colorlinks=true,linkcolor=campusred,urlcolor=campusred}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,showstringspaces=false,frame=single,rulecolor=\color{black!15},backgroundcolor=\color{black!2},xleftmargin=4pt,xrightmargin=4pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{CCBO Directed Research}\fancyhead[R]{Paused campus environment}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\title{\textcolor{campusred}{UM6P-inspired Campus}\\ROS 2 and Gazebo\\\large A beginner's reproducible environment guide}
+\author{Prepared for Isma\"el Assoumane Idi}
+\date{20 September 2026}
+\begin{document}
+\maketitle
+\noindent This guide concerns environment preparation only. The two quadrotors are static scene placeholders. No physics advancement, flight controller, trajectory, consensus, optimization or numerical campaign is part of this environment.
+\setcounter{tocdepth}{1}
+{\small\setlength{\parskip}{0pt}\tableofcontents}
+\clearpage
+\input{chapters.tex}
+\clearpage
+\appendix
+\input{listings.tex}
+\end{document}

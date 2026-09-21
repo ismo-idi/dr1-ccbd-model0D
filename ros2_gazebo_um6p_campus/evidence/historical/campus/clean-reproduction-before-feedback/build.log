@@ -1,0 +1,160 @@
+Starting >>> um6p_campus_description
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/build/um6p_campus_description
+-- Install configuration: ""
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/leaf.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/stone.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/dark.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/dark.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/green.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/leaf.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/green.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/trunk.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/stone.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/trunk.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/glass.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/stone.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/recess.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/glass.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/ivory.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/recess.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/ivory.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/stone.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/white.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/paving.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/white.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/dark.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/joint.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/dark.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/paving.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/joint.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/letter.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/red.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/stone.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/letter.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/stone.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/red.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/white.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/orange.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/orange.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/white.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/dark.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/dark.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/blue.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/white.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/blue.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/white.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/dark.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/dark.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/model.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/model.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/white.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/white.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/ivory.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/roof.mtl
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/ivory.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/roof.obj
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/worlds
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/worlds/campus.sdf
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/ament_index/resource_index/package_run_dependencies/um6p_campus_description
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/ament_index/resource_index/parent_prefix_path/um6p_campus_description
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/environment/ament_prefix_path.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/environment/ament_prefix_path.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/environment/path.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/environment/path.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/local_setup.bash
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/local_setup.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/local_setup.zsh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/local_setup.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/package.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/ament_index/resource_index/packages/um6p_campus_description
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/cmake/um6p_campus_descriptionConfig.cmake
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/cmake/um6p_campus_descriptionConfig-version.cmake
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_description/share/um6p_campus_description/package.xml
+Finished <<< um6p_campus_description [0.66s]
+Starting >>> um6p_campus_bringup
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/build/um6p_campus_bringup
+-- Install configuration: ""
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/launch
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/launch/campus.launch.py
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/config/server.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/config/overview.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/config/bridge.yaml
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/config/gui.config
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/ament_index/resource_index/package_run_dependencies/um6p_campus_bringup
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/ament_index/resource_index/parent_prefix_path/um6p_campus_bringup
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/environment/ament_prefix_path.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/environment/ament_prefix_path.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/environment/path.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/environment/path.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/local_setup.bash
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/local_setup.sh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/local_setup.zsh
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/local_setup.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/package.dsv
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/ament_index/resource_index/packages/um6p_campus_bringup
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/cmake/um6p_campus_bringupConfig.cmake
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/cmake/um6p_campus_bringupConfig-version.cmake
+-- Installing: /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus clean reproduction/install/um6p_campus_bringup/share/um6p_campus_bringup/package.xml
+Finished <<< um6p_campus_bringup [0.64s]
+
+Summary: 2 packages finished [1.41s]

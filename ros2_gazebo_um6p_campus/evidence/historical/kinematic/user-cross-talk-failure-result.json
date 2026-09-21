@@ -1,0 +1,49 @@
+{
+  "status": "FAIL",
+  "wave": 2,
+  "gui": true,
+  "initial_entities": [
+    "campus_buildings",
+    "courtyard",
+    "demo_apron",
+    "landing_pads",
+    "landscaping",
+    "pergola",
+    "static_sphere",
+    "uav_1",
+    "uav_2",
+    "um6p_landmark"
+  ],
+  "near_obstacle_state": {
+    "tick": 0,
+    "sim_time": 0,
+    "paused": true,
+    "wave": 1,
+    "status": "RUNNING",
+    "poses": [
+      [
+        -3.6,
+        -8.2,
+        0.12
+      ],
+      [
+        3.6,
+        -8.2,
+        0.12
+      ]
+    ],
+    "distances": [
+      7.2,
+      14.39049686425038,
+      14.39049686425038
+    ],
+    "phases": [
+      "READY",
+      "READY"
+    ],
+    "yield_ticks": 0,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "exit_code": 0
+}

@@ -1,0 +1,15 @@
+note: Running TeX ...
+warning: chapters.tex:110: Underfull \hbox (badness 1275) in paragraph at lines 109--110
+warning: chapters.tex:210: Underfull \hbox (badness 10000) in paragraph at lines 209--210
+warning: chapters.tex:213: Underfull \hbox (badness 1990) in paragraph at lines 212--213
+warning: chapters.tex:219: Underfull \hbox (badness 4647) in paragraph at lines 218--219
+note: Rerunning TeX because "tutorial.toc" changed ...
+warning: chapters.tex:110: Underfull \hbox (badness 1275) in paragraph at lines 109--110
+warning: chapters.tex:210: Underfull \hbox (badness 10000) in paragraph at lines 209--210
+warning: chapters.tex:213: Underfull \hbox (badness 1990) in paragraph at lines 212--213
+warning: chapters.tex:219: Underfull \hbox (badness 4647) in paragraph at lines 218--219
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `ros2_gazebo_um6p_campus/tutorial/tutorial.log` (21.509765625 KiB)
+note: Writing `ros2_gazebo_um6p_campus/tutorial/tutorial.pdf` (504.3798828125 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)

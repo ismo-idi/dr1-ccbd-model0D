@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "current_markdown_links": "resolved",
+  "python_ast_files": 13,
+  "shell_syntax_files": 16,
+  "host_absolute_paths_in_runtime_source": false,
+  "task_simulator_processes_remaining": [],
+  "final_change_since_runtime_tests": "explicit already-satisfied ament_index_python dependency in scenario manifests; final build refreshed install"
+}

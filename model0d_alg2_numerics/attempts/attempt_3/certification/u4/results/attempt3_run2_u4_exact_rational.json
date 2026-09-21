@@ -1,0 +1,99 @@
+{
+  "MODEL0D_SAFETY_CERTIFIED": true,
+  "U4": "RESOLVED_BY_U4_E1_EXACT_RATIONAL",
+  "evaluation_complete": true,
+  "expected_counts": {
+    "initial_uav": 1,
+    "initial_workspace": 8,
+    "obstacle": 0,
+    "speed": 16,
+    "uav": 8,
+    "workspace": 64
+  },
+  "failure_count": 0,
+  "failures": [],
+  "initial_uav_squared_margin": {
+    "margin_decimal": "7.84",
+    "margin_exact": {
+      "denominator": "25",
+      "numerator": "196"
+    }
+  },
+  "initial_workspace_min": {
+    "dim": 0,
+    "margin_decimal": "1",
+    "margin_exact": {
+      "denominator": "1",
+      "numerator": "1"
+    },
+    "side": "lower",
+    "uav": 1
+  },
+  "input": {
+    "config": "/mnt/data/u4_work/attempt3_checkpointC_execution/attempt3_checkpointAB/runs/attempt3_run2/config.json",
+    "config_sha256": "7c5ea4d3055875769b0a3251fb30b14d1d166a0099446c939762601f863c0c87",
+    "final_state": "/mnt/data/u4_work/attempt3_checkpointC_execution/attempt3_checkpointAB/runs/attempt3_run2/final_state.npz",
+    "final_state_sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46"
+  },
+  "method": "U4-E1 exact-rational physical safety certification",
+  "obstacle_family": {
+    "count": 0,
+    "status": "VACUOUS_EMPTY_FAMILY"
+  },
+  "semantics": {
+    "model_constants": "exact JSON decimal literals",
+    "safety_tolerance_used": false,
+    "saved_binary64": "exact dyadic rationals via as_integer_ratio",
+    "source_trajectories_only": true
+  },
+  "speed_min_squared_margin": {
+    "k": 2,
+    "margin_decimal": "0.27569242287705609054608933468725338095562671269865",
+    "margin_exact": {
+      "denominator": "5192296858534827628530496329220096",
+      "numerator": "1431476901226393583963385819543727"
+    },
+    "uav": 1
+  },
+  "uav_min_squared_margin": {
+    "clearance_decimal": "0.4",
+    "clearance_exact": {
+      "denominator": "5",
+      "numerator": "2"
+    },
+    "k": 3,
+    "lambda_decimal": "0.92479200080638110007040328842952196922963998891059",
+    "lambda_exact": {
+      "denominator": "2646822713140499409576550887611213",
+      "numerator": "2447760472664976541094683039794479"
+    },
+    "margin_decimal": "4.3946965024440438902085292458877082772021802846095E-7",
+    "margin_exact": {
+      "denominator": "5368394241616423559259674901405253777730294016954048679647169740800",
+      "numerator": "2359246339737244210484930680683636361274901726413405985560497"
+    },
+    "min_distance_decimal_for_readability": "0.40000054933668559201281475364163192553309408197677",
+    "min_squared_distance_decimal": "0.16000043946965024440438902085292458877082772021803",
+    "min_squared_distance_exact": {
+      "denominator": "214735769664656942370386996056210151109211760678161947185886789632",
+      "numerator": "34357817516198700269030338766220851522928332704574968085981308761"
+    },
+    "pair": [
+      1,
+      2
+    ],
+    "regime": "interior",
+    "unsquared_margin_decimal_for_readability": "5.49336685592012814753641631925533094081976764173250266E-7"
+  },
+  "workspace_min": {
+    "dim": 0,
+    "k": 8,
+    "margin_decimal": "1.0229604892253025827386636592564173042774200439453",
+    "margin_exact": {
+      "denominator": "4503599627370496",
+      "numerator": "4607004478089813"
+    },
+    "side": "upper",
+    "uav": 1
+  }
+}

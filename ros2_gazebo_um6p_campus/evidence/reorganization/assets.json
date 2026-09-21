@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "models": [
+    "courtyard",
+    "pergola",
+    "campus_buildings",
+    "um6p_landmark",
+    "landscaping",
+    "uav_1",
+    "uav_2"
+  ],
+  "meshes": 25,
+  "triangles": 25540,
+  "SDF_validation": "world plus all 7 models",
+  "resolved_from": "installed package"
+}

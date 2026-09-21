@@ -1,0 +1,78 @@
+Only in model0d_attempt2a/model0d_alg2_numerics/src: __pycache__
+diff -ru '--exclude=*.pyc' model0d_attempt2a_original/model0d_alg2_numerics/src/diagnostics.py model0d_attempt2a/model0d_alg2_numerics/src/diagnostics.py
+--- model0d_attempt2a_original/model0d_alg2_numerics/src/diagnostics.py	2026-09-12 17:45:22.000000000 +0000
++++ model0d_attempt2a/model0d_alg2_numerics/src/diagnostics.py	2026-09-13 09:25:37.299209213 +0000
+@@ -49,6 +49,8 @@
+     differentiable_rows: list[int]
+     omitted_rows: list[int]
+     omitted_reasons: dict[str, str]
++    inactive_zeroed_rows: list[int]
++    inactive_zeroed_reasons: dict[str, str]
+     near_active_rows: list[int]
+     nonsmooth_blocking_rows: list[int]
+     R_dual: float
+@@ -220,6 +222,7 @@
+             feasibility_pass_by_family=feasibility_pass_by_family, raw_g=g.tolist(),
+             raw_mu_backend=mu_backend.tolist(), multiplier_mapping_available=False,
+             diagnostic_mu=[], differentiable_rows=[], omitted_rows=[], omitted_reasons={},
++            inactive_zeroed_rows=[], inactive_zeroed_reasons={},
+             near_active_rows=[], nonsmooth_blocking_rows=[], R_dual=float("inf"),
+             R_dual_normalized=float("inf"), R_comp=float("inf"), R_stat=float("inf"),
+             R_stat_normalized=float("inf"), R_desc=R_desc, descent_limit=descent_limit,
+@@ -231,9 +234,37 @@
+     diff_rows: list[int] = []
+     omitted_rows: list[int] = []
+     omitted_reasons: dict[str, str] = {}
++    inactive_zeroed_rows: list[int] = []
++    inactive_zeroed_reasons: dict[str, str] = {}
+     near_active_rows: list[int] = []
+     blocking: list[int] = []
+ 
++    # Attempt-2A diagnostic amendment (researcher-authorized 13 Sep 2026):
++    # KKT complementarity requires the multiplier of a strictly inactive
++    # inequality to be exactly zero.  IPOPT may return tiny signed numerical
++    # multipliers on constraints far from activity.  For the *independent
++    # finite diagnostic only*, retain the raw backend multipliers verbatim but
++    # set the diagnostic multiplier to zero whenever the independently
++    # recomputed canonical row satisfies the already-frozen family-aware
++    # strict-inactivity buffer g < -inactive_factor * tau_family.
++    #
++    # This does not change the NLP, IPOPT options, any trajectory, any update,
++    # or any acceptance threshold.  Near-active/active rows retain the raw
++    # backend multiplier and are still subject to the frozen sign test.
++    for meta in local.metas:
++        row = meta.row
++        family_tau = float(t[FAMILY_TAU_KEY[meta.family]])
++        inactive_buffer = float(t["inactive_factor"]) * family_tau
++        if g[row] < -inactive_buffer:
++            mu_diag[row] = 0.0
++            inactive_zeroed_rows.append(row)
++            inactive_zeroed_reasons[str(row)] = (
++                f"{meta.label}: g={g[row]:.17g} < "
++                f"-inactive_buffer={-inactive_buffer:.17g}; "
++                "KKT-consistent strict-inactive diagnostic multiplier set to zero; "
++                f"raw backend multiplier preserved={mu_backend[row]:.17g}"
++            )
++
+     for meta in local.metas:
+         row = meta.row
+         if meta.family not in ("obs", "uav"):
+@@ -251,7 +282,7 @@
+         inactive_buffer = float(t["inactive_factor"]) * family_tau
+         if g[row] < -inactive_buffer:
+             omitted_rows.append(row)
+-            mu_diag[row] = 0.0
++            # mu_diag[row] is already zero from the general strict-inactivity rule.
+             omitted_reasons[str(row)] = (
+                 f"{meta.label}: s={s:.17g} <= tau_s and g={g[row]:.17g} "
+                 f"< -inactive_buffer={-inactive_buffer:.17g}; strict-inactive local omission"
+@@ -320,6 +351,8 @@
+         differentiable_rows=diff_rows,
+         omitted_rows=omitted_rows,
+         omitted_reasons=omitted_reasons,
++        inactive_zeroed_rows=inactive_zeroed_rows,
++        inactive_zeroed_reasons=inactive_zeroed_reasons,
+         near_active_rows=near_active_rows,
+         nonsmooth_blocking_rows=blocking,
+         R_dual=R_dual,
+Only in model0d_attempt2a/model0d_alg2_numerics/src: diagnostics.py.attempt1

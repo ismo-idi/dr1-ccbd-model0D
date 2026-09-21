@@ -1,0 +1,2 @@
+$ python3 -m compileall -q src tests run_experiment.py
+EXIT_CODE=0

@@ -1,0 +1,18 @@
+{
+  "wave": 2,
+  "takeoff_tick": 150,
+  "completion_tick": 2711,
+  "yield_ticks": 243,
+  "goals": [
+    [
+      3.6,
+      -40,
+      0.12
+    ],
+    [
+      -3.6,
+      -40,
+      0.12
+    ]
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "manual_demo_1_running": true,
+  "manual_demo_1_started_motion": false,
+  "verified_demo": 2,
+  "same_ros_domain": 85,
+  "isolation": "unique ROS topics and node namespace plus Gazebo partition"
+}

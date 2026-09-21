@@ -1,0 +1,1526 @@
+ambient {
+  r: 0.6499999761581421
+  g: 0.6499999761581421
+  b: 0.6499999761581421
+  a: 1.0
+}
+background {
+  r: 0.550000011920929
+  g: 0.7200000286102295
+  b: 0.8600000143051147
+  a: 1.0
+}
+shadows: true
+grid: true
+model {
+  name: "courtyard"
+  id: 4
+  pose {
+    position {
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 5
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "dark"
+      id: 6
+      parent_id: 5
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/dark.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        diffuse {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "joint"
+      id: 7
+      parent_id: 5
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/joint.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.4300000071525574
+          g: 0.38999998569488525
+          b: 0.3100000023841858
+          a: 1.0
+        }
+        diffuse {
+          r: 0.4300000071525574
+          g: 0.38999998569488525
+          b: 0.3100000023841858
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "paving"
+      id: 8
+      parent_id: 5
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/paving.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.6000000238418579
+          g: 0.550000011920929
+          b: 0.4399999976158142
+          a: 1.0
+        }
+        diffuse {
+          r: 0.6000000238418579
+          g: 0.550000011920929
+          b: 0.4399999976158142
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "white"
+      id: 9
+      parent_id: 5
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/courtyard/meshes/white.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "pergola"
+  id: 10
+  pose {
+    position {
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 11
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "ivory"
+      id: 12
+      parent_id: 11
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/ivory.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.8600000143051147
+          g: 0.8399999737739563
+          b: 0.75
+          a: 1.0
+        }
+        diffuse {
+          r: 0.8600000143051147
+          g: 0.8399999737739563
+          b: 0.75
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "roof"
+      id: 13
+      parent_id: 11
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/roof.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.5
+          g: 0.5799999833106995
+          b: 0.6000000238418579
+          a: 1.0
+        }
+        diffuse {
+          r: 0.5
+          g: 0.5799999833106995
+          b: 0.6000000238418579
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "white"
+      id: 14
+      parent_id: 11
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/pergola/meshes/white.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "campus_buildings"
+  id: 15
+  pose {
+    position {
+      y: 12.0
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 16
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "glass"
+      id: 17
+      parent_id: 16
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/glass.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.10000000149011612
+          g: 0.30000001192092896
+          b: 0.38999998569488525
+          a: 1.0
+        }
+        diffuse {
+          r: 0.10000000149011612
+          g: 0.30000001192092896
+          b: 0.38999998569488525
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "ivory"
+      id: 18
+      parent_id: 16
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/ivory.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.8600000143051147
+          g: 0.8399999737739563
+          b: 0.75
+          a: 1.0
+        }
+        diffuse {
+          r: 0.8600000143051147
+          g: 0.8399999737739563
+          b: 0.75
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "recess"
+      id: 19
+      parent_id: 16
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/recess.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.2800000011920929
+          g: 0.25
+          b: 0.20000000298023224
+          a: 1.0
+        }
+        diffuse {
+          r: 0.2800000011920929
+          g: 0.25
+          b: 0.20000000298023224
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "stone"
+      id: 20
+      parent_id: 16
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/campus_buildings/meshes/stone.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        diffuse {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "um6p_landmark"
+  id: 21
+  pose {
+    position {
+      x: -7.0
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 22
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "letter"
+      id: 23
+      parent_id: 22
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/letter.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9800000190734863
+          g: 0.8299999833106995
+          b: 0.47999998927116394
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9800000190734863
+          g: 0.8299999833106995
+          b: 0.47999998927116394
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "red"
+      id: 24
+      parent_id: 22
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/red.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.6499999761581421
+          g: 0.02500000037252903
+          b: 0.02500000037252903
+          a: 1.0
+        }
+        diffuse {
+          r: 0.6499999761581421
+          g: 0.02500000037252903
+          b: 0.02500000037252903
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "stone"
+      id: 25
+      parent_id: 22
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/um6p_landmark/meshes/stone.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        diffuse {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "landscaping"
+  id: 26
+  pose {
+    position {
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 27
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "dark"
+      id: 28
+      parent_id: 27
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/dark.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        diffuse {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "green"
+      id: 29
+      parent_id: 27
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/green.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.23000000417232513
+          g: 0.3400000035762787
+          b: 0.10000000149011612
+          a: 1.0
+        }
+        diffuse {
+          r: 0.23000000417232513
+          g: 0.3400000035762787
+          b: 0.10000000149011612
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "leaf"
+      id: 30
+      parent_id: 27
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/leaf.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.36000001430511475
+          g: 0.4300000071525574
+          b: 0.14000000059604645
+          a: 1.0
+        }
+        diffuse {
+          r: 0.36000001430511475
+          g: 0.4300000071525574
+          b: 0.14000000059604645
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "stone"
+      id: 31
+      parent_id: 27
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/stone.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        diffuse {
+          r: 0.7200000286102295
+          g: 0.6200000047683716
+          b: 0.46000000834465027
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "trunk"
+      id: 32
+      parent_id: 27
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/landscaping/meshes/trunk.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.3100000023841858
+          g: 0.20999999344348907
+          b: 0.11999999731779099
+          a: 1.0
+        }
+        diffuse {
+          r: 0.3100000023841858
+          g: 0.20999999344348907
+          b: 0.11999999731779099
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "uav_1"
+  id: 33
+  pose {
+    position {
+      x: -3.6
+      y: -8.2
+      z: 0.12
+    }
+    orientation {
+      z: 0.14943813247359924
+      w: 0.9887710779360424
+    }
+  }
+  link {
+    id: 34
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "blue"
+      id: 35
+      parent_id: 34
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/blue.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.02500000037252903
+          g: 0.3499999940395355
+          b: 0.699999988079071
+          a: 1.0
+        }
+        diffuse {
+          r: 0.02500000037252903
+          g: 0.3499999940395355
+          b: 0.699999988079071
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "dark"
+      id: 36
+      parent_id: 34
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/dark.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        diffuse {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "white"
+      id: 37
+      parent_id: 34
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_1/meshes/white.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "uav_2"
+  id: 39
+  pose {
+    position {
+      x: 3.6
+      y: -8.2
+      z: 0.12
+    }
+    orientation {
+      z: -0.14943813247359924
+      w: 0.9887710779360424
+    }
+  }
+  link {
+    id: 40
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "dark"
+      id: 41
+      parent_id: 40
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/dark.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        diffuse {
+          r: 0.054999999701976776
+          g: 0.06499999761581421
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "orange"
+      id: 42
+      parent_id: 40
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/orange.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9599999785423279
+          g: 0.25999999046325684
+          b: 0.04500000178813934
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9599999785423279
+          g: 0.25999999046325684
+          b: 0.04500000178813934
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "white"
+      id: 43
+      parent_id: 40
+      cast_shadows: true
+      pose {
+        position {
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: MESH
+        mesh {
+          filename: "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/install/um6p_campus_description/share/um6p_campus_description/models/uav_2/meshes/white.obj"
+          scale {
+            x: 1.0
+            y: 1.0
+            z: 1.0
+          }
+        }
+      }
+      material {
+        ambient {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        diffuse {
+          r: 0.9399999976158142
+          g: 0.9399999976158142
+          b: 0.8799999952316284
+          a: 1.0
+        }
+        specular {
+          r: 0.07999999821186066
+          g: 0.07999999821186066
+          b: 0.07999999821186066
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+model {
+  name: "landing_pads"
+  id: 45
+  pose {
+    position {
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  link {
+    id: 46
+    name: "body"
+    pose {
+      position {
+      }
+      orientation {
+        w: 1.0
+      }
+    }
+    visual {
+      name: "pad_0"
+      id: 47
+      parent_id: 46
+      cast_shadows: true
+      pose {
+        position {
+          x: -3.6
+          y: -19.5
+          z: 0.06
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: CYLINDER
+        cylinder {
+          radius: 1.2
+          length: 0.12
+        }
+      }
+      material {
+        ambient {
+          r: 0.12999999523162842
+          g: 0.15000000596046448
+          b: 0.17000000178813934
+          a: 1.0
+        }
+        diffuse {
+          r: 0.12999999523162842
+          g: 0.15000000596046448
+          b: 0.17000000178813934
+          a: 1.0
+        }
+        specular {
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+    visual {
+      name: "pad_1"
+      id: 48
+      parent_id: 46
+      cast_shadows: true
+      pose {
+        position {
+          x: 3.6
+          y: -19.5
+          z: 0.06
+        }
+        orientation {
+          w: 1.0
+        }
+      }
+      geometry {
+        type: CYLINDER
+        cylinder {
+          radius: 1.2
+          length: 0.12
+        }
+      }
+      material {
+        ambient {
+          r: 0.12999999523162842
+          g: 0.15000000596046448
+          b: 0.17000000178813934
+          a: 1.0
+        }
+        diffuse {
+          r: 0.12999999523162842
+          g: 0.15000000596046448
+          b: 0.17000000178813934
+          a: 1.0
+        }
+        specular {
+          a: 1.0
+        }
+        emissive {
+          a: 1.0
+        }
+        lighting: true
+      }
+    }
+  }
+}
+light {
+  name: "warm_sun"
+  type: DIRECTIONAL
+  pose {
+    position {
+      z: 20.0
+    }
+    orientation {
+      w: 1.0
+    }
+  }
+  diffuse {
+    r: 0.949999988079071
+    g: 0.8600000143051147
+    b: 0.7200000286102295
+    a: 1.0
+  }
+  specular {
+    r: 0.20000000298023224
+    g: 0.20000000298023224
+    b: 0.20000000298023224
+    a: 1.0
+  }
+  attenuation_constant: 1.0
+  attenuation_linear: 1.0
+  direction {
+    x: -0.45
+    y: 0.5
+    z: -0.85
+  }
+  range: 10.0
+  cast_shadows: true
+  id: 49
+  parent_id: 1
+  intensity: 1.0
+  visualize_visual: true
+}
+origin_visual: true

@@ -1,0 +1,11 @@
+{
+ "MKL_NUM_THREADS": "1",
+ "OMP_NUM_THREADS": "1",
+ "OPENBLAS_NUM_THREADS": "1",
+ "PYTHONHASHSEED": "0",
+ "python": "3.12.3",
+ "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+ "numpy": "2.5.3",
+ "casadi": "3.8.1",
+ "note": "Independent-audit validation environment of 20 September 2026. This differs from the frozen Attempt-3 campaign environment (python 3.13.5, casadi 3.7.2, numpy 2.3.5). The centralized reference is an external validation oracle and is not part of the frozen campaign, so it is not required to reproduce campaign bit-identity."
+}

@@ -1,0 +1,81 @@
+{
+ "question": "is the inter-UAV clearance constraint active only at the frozen alpha = 20?",
+ "answer": "no: it is active at the centralized optimum for every alpha tested; activity follows from the symmetric crossing geometry, not from the weight choice",
+ "backend": "IPOPT (Interior Point OPTimizer) via CasADi",
+ "ipopt_tol": 1e-11,
+ "rows": [
+  {
+   "alpha": 0.5,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 3.2326021151622837,
+   "min_uav_clearance_margin_m": 1.0952183604473475e-11,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.7439926005397944,
+   "goal_error_uav2_m": 0.8599646774629173
+  },
+  {
+   "alpha": 1.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 3.5955555555564644,
+   "min_uav_clearance_margin_m": 4.542921594463678e-12,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.4106140476710606,
+   "goal_error_uav2_m": 0.4811006466962026
+  },
+  {
+   "alpha": 2.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 3.8059962049344946,
+   "min_uav_clearance_margin_m": 4.39825953435502e-12,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.25283337114537957,
+   "goal_error_uav2_m": 0.21633753727697666
+  },
+  {
+   "alpha": 5.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 3.9432553509217607,
+   "min_uav_clearance_margin_m": 4.433453604235638e-12,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.08976460069068923,
+   "goal_error_uav2_m": 0.10418088331977726
+  },
+  {
+   "alpha": 10.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 3.991167317813576,
+   "min_uav_clearance_margin_m": 5.365596855710919e-12,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.04561547018921597,
+   "goal_error_uav2_m": 0.052821393042193014
+  },
+  {
+   "alpha": 20.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 4.015742261546173,
+   "min_uav_clearance_margin_m": 1.0612621892391871e-11,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.023025604007208975,
+   "goal_error_uav2_m": 0.02664041590493504
+  },
+  {
+   "alpha": 50.0,
+   "beta_obj": 1.0,
+   "converged": true,
+   "F_star": 4.030702504266332,
+   "min_uav_clearance_margin_m": 3.1156022206602074e-11,
+   "constraint_active_at_1e-6": true,
+   "goal_error_uav1_m": 0.009263469560990459,
+   "goal_error_uav2_m": 0.010712248901440107
+  }
+ ],
+ "non_claims": [
+  "single-start solves; this is an activity diagnostic, not a global-optimality or weight-selection study"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "radius_bound": 1.2,
+  "measured_radii": {
+    "uav_1": 1.1362601394737915,
+    "uav_2": 1.1362601394737915
+  },
+  "scenery_triangle_boxes_checked": 0,
+  "min_body_center_to_scenery_box": 1000000000.0,
+  "ground_check": "minimum vertex z = model z + .005; z>=.12, pads top .12; paving top 0",
+  "scope": "fixed geometry; sphere/inter-UAV checked separately; conservative triangle-AABB distance"
+}

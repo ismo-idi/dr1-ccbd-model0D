@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "mode": "gui",
+  "runs": [
+    {
+      "pid": 42711,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-1",
+      "stats_samples": 131,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "camera_reset_response": "data: true\n\n",
+      "screenshot_camera_xyzrpy": [
+        16.0,
+        -24.0,
+        6.8,
+        0.0,
+        0.1,
+        2.06
+      ],
+      "screenshot_service": {
+        "exit_code": 0,
+        "reply": "data: true\n\n"
+      },
+      "screenshot_files": [
+        "2026-09-14T14:14:41.229415443.png"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "pid": 42919,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-2",
+      "stats_samples": 131,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "stats_tail": [
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    }
+  ]
+}

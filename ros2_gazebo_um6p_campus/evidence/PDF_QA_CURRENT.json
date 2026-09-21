@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "date": "2026-09-20",
+  "engine": "Tectonic 0.17.0",
+  "checks": [
+    "all 76 pages visually inspected",
+    "final unchanged pages pixel-identical to inspected renders; seven changed pages reinspected",
+    "no clipped code or missing figures observed",
+    "no overfull boxes, missing characters or undefined references in compilation",
+    "complete appendix includes resolved from maintained source"
+  ],
+  "documents": [
+    {
+      "file": "tutorial/01_UM6P_Campus_Environment_Setup_and_Coding.pdf",
+      "pages": 37,
+      "sha256": "78d265ad0bf91a0e5ded7d6fe4a0bbb9885c03794afe939c9ed494775c042b6c",
+      "all_pages_rendered_and_visually_inspected": true,
+      "render_dpi": 85,
+      "final_changed_pages_reinspected": true
+    },
+    {
+      "file": "tutorial/02_Two_UAV_Kinematic_Demos_Coding_and_Verification.pdf",
+      "pages": 39,
+      "sha256": "01eb573c33a290e648f22c0b63102b686f60653c474c9bf1a9551562564a4106",
+      "all_pages_rendered_and_visually_inspected": true,
+      "render_dpi": 85,
+      "final_changed_pages_reinspected": true
+    }
+  ]
+}

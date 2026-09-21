@@ -1,0 +1,13 @@
+/build/
+/install/
+/log/
+/.runtime/
+__pycache__/
+*.pyc
+/tutorial/source/**/*.aux
+/tutorial/source/**/*.log
+/tutorial/source/**/*.out
+/tutorial/source/**/*.toc
+/tutorial/source/**/tutorial.pdf
+/tutorial/qa/
+/evidence/local-*/

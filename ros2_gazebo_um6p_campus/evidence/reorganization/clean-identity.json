@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "fresh_path_contains_spaces": true,
+  "packages": 5,
+  "campus_two_paused_launches": true,
+  "both_demos_completed": true,
+  "gui_vs_clean_tick_identity": true,
+  "source_copy": "campus organized clean reproduction",
+  "same_installed_host_dependencies": true
+}

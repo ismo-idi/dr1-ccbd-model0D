@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>um6p_demo_core</name><version>1.0.0</version>
+  <description>Deterministic two-UAV kinematic showcases, no flight dynamics.</description>
+  <maintainer email="ismo-idi@users.noreply.github.com">Ismael Assoumane Idi</maintainer>
+  <license>UNLICENSED</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>gz_sim_vendor</depend><depend>gz_plugin_vendor</depend>
+  <depend>gz_gui_vendor</depend><depend>qtbase5-dev</depend><depend>qtdeclarative5-dev</depend>
+  <depend>qtquickcontrols2-5-dev</depend>
+  <exec_depend>um6p_campus_description</exec_depend>
+  <exec_depend>um6p_campus_bringup</exec_depend>
+  <exec_depend>launch_ros</exec_depend><exec_depend>ament_index_python</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend><exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

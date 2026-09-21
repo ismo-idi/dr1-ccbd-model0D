@@ -1,0 +1,16 @@
+{
+  "backend_iterations": 69,
+  "backend_status": "Solved_To_Acceptable_Level",
+  "failure_r": 1,
+  "failure_t": 17,
+  "family": "W",
+  "g": -2.9999999927837857,
+  "label": "a1:W:k8:dim1:upper",
+  "mu": -9.56248038286337e-08,
+  "near_active_rows": [],
+  "nonsmooth_blocking_rows": [],
+  "threshold": 1e-08,
+  "threshold_ratio": 9.56248038286337,
+  "violation_R_dual_normalized": 9.56248038286337e-08,
+  "worst_negative_multiplier_row": 30
+}

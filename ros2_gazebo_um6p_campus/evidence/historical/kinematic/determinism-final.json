@@ -1,0 +1,12 @@
+{
+  "1": {
+    "status": "PASS",
+    "identical_ticks": 2597,
+    "fields": "both model positions, phases and mission status; all ticks through completion"
+  },
+  "2": {
+    "status": "PASS",
+    "identical_ticks": 2712,
+    "fields": "both model positions, phases and mission status; all ticks through completion"
+  }
+}

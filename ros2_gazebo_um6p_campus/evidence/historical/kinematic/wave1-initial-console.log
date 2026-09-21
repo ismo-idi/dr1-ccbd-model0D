@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/ros2_gazebo_um6p_campus/tests/verify_demo.py", line 90, in <module>
+    assert math.dist(actual[f'uav_{i+1}'],states[-1]['poses'][i])<1e-8
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

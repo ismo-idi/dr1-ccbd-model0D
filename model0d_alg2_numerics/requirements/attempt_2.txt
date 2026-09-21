@@ -1,0 +1,17 @@
+# Frozen execution environment for Attempt 2, transcribed verbatim from
+# model0d_alg2_numerics/attempts/attempt_2/runs/attempt2a_run1/environment.json
+# Added by the independent-audit correction of 20 September 2026 (finding B6).
+# These pins are required to reproduce BIT-IDENTICAL numerical results.
+# The component test suite is not version-fragile: it was re-run during the audit on
+# Python 3.12.3 / casadi 3.8.1 / numpy 2.5.3 / scipy 1.18.1 / matplotlib 3.11.2 and passed in full.
+#
+# python==3.13.5
+
+casadi==3.7.2
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+pytest
+
+# Deterministic execution environment enforced by run_experiment.py:
+#   PYTHONHASHSEED=0  OMP_NUM_THREADS=1  OPENBLAS_NUM_THREADS=1  MKL_NUM_THREADS=1

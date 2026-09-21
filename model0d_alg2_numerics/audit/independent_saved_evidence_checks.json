@@ -1,0 +1,53 @@
+{
+  "step3": {
+    "manifest_entries_matched": 76,
+    "run_source_and_config_hashes": "PASS",
+    "stored_repeats_identical_excluding_timing": true,
+    "saved_states_match_summaries": true,
+    "metrics": {
+      "objective": 4.324447512461001,
+      "TCC": 0.3029946622823656,
+      "target": 0.21424958036318856,
+      "R3": 0.017456698124794723,
+      "source_closest": {
+        "k": 4,
+        "lambda": 0.7864005357888517,
+        "distance": 0.500849953505317
+      },
+      "source_margin": 0.100849953505317,
+      "body_clearance": 0.300849953505317,
+      "guardian_margin": 0.17815280169937797,
+      "integrity": 8.268646384127626e-17,
+      "outer": 1,
+      "inner": 16,
+      "outer_complete_events": 0,
+      "termination": "LOCAL_ORACLE_ABORT"
+    }
+  },
+  "attempt2a": {
+    "manifest_entries_matched": 114,
+    "run_source_and_config_hashes": "PASS",
+    "stored_repeats_identical_excluding_timing": true,
+    "saved_states_match_summaries": true,
+    "metrics": {
+      "objective": 3.9962839227687965,
+      "TCC": 0.12581049903927163,
+      "target": 0.08896145701513258,
+      "R3": 0.0002248160621244216,
+      "source_closest": {
+        "k": 4,
+        "lambda": 0.053776029864323095,
+        "distance": 0.2861322983824108
+      },
+      "source_margin": -0.11386770161758925,
+      "body_clearance": 0.08613229838241077,
+      "guardian_margin": 9.201428508021081e-11,
+      "integrity": 2.5443010932208815e-17,
+      "outer": 1,
+      "inner": 100,
+      "outer_complete_events": 0,
+      "termination": "MAX_INNER_ITERATIONS"
+    }
+  },
+  "historical_run_data_preserved": true
+}

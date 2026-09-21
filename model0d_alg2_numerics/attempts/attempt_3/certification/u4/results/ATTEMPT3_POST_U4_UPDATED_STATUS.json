@@ -1,0 +1,36 @@
+{
+  "U4_E1_run1": true,
+  "U4_E1_run2": true,
+  "U4_E2_run1": true,
+  "U4_E2_run2": true,
+  "attempt3_run1_final_state_sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46",
+  "attempt3_run2_final_state_sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46",
+  "claim_boundary": "Exact/validated safety certification applies to the saved deterministic planned trajectory represented by the immutable binary64 output and exact intended model constants; it is not real-flight safety certification.",
+  "cross_checks": [
+    {
+      "exact_contained_in_interval": true,
+      "exact_positive": true,
+      "interval_lower_positive": true,
+      "run": 1
+    },
+    {
+      "exact_contained_in_interval": true,
+      "exact_positive": true,
+      "interval_lower_positive": true,
+      "run": 2
+    }
+  ],
+  "date": "2026-09-18",
+  "final_state_files_byte_identical": true,
+  "scope": "post-certification interpretation of immutable Attempt-3 saved outputs; no solver/simulation rerun",
+  "updated_statuses": {
+    "FULLY_CERTIFIED_MODEL0D_SUNSUN_RESULT": false,
+    "MODEL0D_SAFETY_CERTIFIED": true,
+    "NUMERICALLY_VALID": true,
+    "PHYSICAL_POSTCHECK_NUMERIC_PASS": true,
+    "SUNSUN_ALGORITHMICALLY_CERTIFIED": false,
+    "TCC_CONSISTENT": true,
+    "U3": "CONDITIONAL",
+    "U4": "RESOLVED_FOR_ATTEMPT3_BY_U4_E1_WITH_U4_E2_INDEPENDENT_AUDIT"
+  }
+}

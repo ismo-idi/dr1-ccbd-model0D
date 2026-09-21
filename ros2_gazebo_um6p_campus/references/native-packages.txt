@@ -1,0 +1,9 @@
+# ROS repository must already be configured, as on the user's laptop.
+ros-jazzy-ros-base
+ros-jazzy-ros-gz
+ros-jazzy-ament-cmake
+python3-colcon-common-extensions
+python3-protobuf
+python3-yaml
+build-essential
+cmake

@@ -1,0 +1,21 @@
+[
+  {
+    "reference": "pergola",
+    "filename": "codex-clipboard-b4c21bd8-6b5a-45ec-a020-5d44e91bef2b.png",
+    "sha256": "6cbccacf16d781628be69cf53706edca3a4638b9904bd50b4a6395fd4488926e",
+    "provenance": "user attachment; rights/source URL not supplied; not redistributed"
+  },
+  {
+    "reference": "landmark",
+    "filename": "codex-clipboard-46f8a67a-fcf7-4c8a-8a5c-726dfcc6e996.png",
+    "sha256": "6ca41149cd97ffcecd7bd4d078fb51a2a824be0b5388c4f10c5fcd3724f7d849",
+    "provenance": "user attachment; rights/source URL not supplied; not redistributed"
+  },
+  {
+    "reference": "alternating block rotation follow-up",
+    "url": "https://myapi.um6p.ma/sites/default/files/2025-05/enroll3_11zon.jpg",
+    "sha256": "30ffed0a19ed4a784b1ac0d19d303f8abdf5acbe8a1d0667c35b0987b541b80a",
+    "retrieved": "2026-09-14",
+    "provenance": "user-linked UM6P website; inspected, not redistributed"
+  }
+]

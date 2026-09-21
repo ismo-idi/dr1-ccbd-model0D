@@ -1,0 +1,21 @@
+from pathlib import Path
+import numpy as np
+
+from src.config import load_config
+from src.tcc import assemble_tcc
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_BtB_and_exact_split_elimination():
+    cfg = load_config(ROOT / 'configs' / 'baseline_2uav_0obs.json')
+    ops = assemble_tcc(cfg)
+    np.testing.assert_allclose(ops.B.T @ ops.B, 2.0 * np.eye(cfg.Q))
+
+    rng = np.random.default_rng(20260911)
+    source2 = rng.normal(size=cfg.Q)
+    z1 = np.concatenate([rng.normal(size=cfg.Q), source2.copy()])
+    z2 = source2.copy()
+    u = source2.copy()
+    np.testing.assert_allclose(ops.target_rows(z1, z2, u), 0.0)
+    np.testing.assert_allclose(ops.direct_tcc_difference(z1, z2), 0.0)

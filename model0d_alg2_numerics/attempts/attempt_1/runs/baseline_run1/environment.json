@@ -1,0 +1,24 @@
+{
+  "MKL_NUM_THREADS": "1",
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "0",
+  "casadi": "3.7.2",
+  "config_sha256": "a9120c15840c8ec1605f8ce5d21d946ac1734672bde044ea1e9bacbc55750784",
+  "implementation_files_sha256": {
+    "run_experiment.py": "555881830578179db1c3b8e48a309a5e4276004595c7732d59fec065cc552823",
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/config.py": "3d035be4ac0ca7e82e1a7063193ae12274bad957ce5d751fa21b3684910145ae",
+    "src/diagnostics.py": "af629c69912fec45a15e9e8c73562cfbb5565db9692d2ad2de6baaced160db84",
+    "src/geometry.py": "bbcee181c372d462e2b56dcbe4bee831a2f13fe9f97298eb6747c719e5ba47a8",
+    "src/io_utils.py": "c448d2108f0b846c9c2897a8a20a3cac7c702547d08812fb0299fbaa8b778239",
+    "src/local_nlp.py": "789bc9da93e593d9ff62ab874fe20e50188b2800d3fab6815badb0275adee504",
+    "src/sunsun_algorithm2.py": "dfdc931ae1e1ce17d37e8e7b886cb313047c30cfab405ba4a3be253b61719024",
+    "src/tcc.py": "852af3aea5228a9efba8d87a8ba66d4856b4755a0f840d11defa4e71f834658f"
+  },
+  "matplotlib": "3.10.8",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "scipy": "1.17.0"
+}

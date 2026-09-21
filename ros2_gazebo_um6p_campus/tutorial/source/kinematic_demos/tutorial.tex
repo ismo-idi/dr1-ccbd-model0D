@@ -1,0 +1,22 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,microtype,graphicx,xcolor,booktabs,longtable,array,listings,fancyhdr,hyperref}
+\definecolor{campusred}{HTML}{9F302A}
+\hypersetup{colorlinks=true,linkcolor=campusred,urlcolor=campusred}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,showstringspaces=false,frame=single,rulecolor=\color{black!15},backgroundcolor=\color{black!2}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{UM6P campus demonstrations}\fancyhead[R]{Deterministic kinematics}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{.45em}
+\title{\textcolor{campusred}{Two UAVs, two demonstrations}\\\large A step-by-step ROS 2 / Gazebo kinematics guide}
+\author{Prepared for Isma\"el Assoumane Idi}
+\date{20 September 2026}
+\begin{document}
+\maketitle
+\textbf{Purpose.} Learn to implement deterministic ascent, travel, yielding, spherical-obstacle bypass and landing. These are kinematic demonstrations with explicit geometric clearance checks. They do not model aerodynamic forces, rotor thrust, tracking error or physical flight control.
+
+Research context: \emph{Constraint Consensus-Based Dynamics for Decentralized Path Planning in UAV Swarms}. This showcase does not implement TCC, Sun--Sun, consensus or an optimization solver. Its geometry and paths are separate from the numerical campaign.
+\setcounter{tocdepth}{1}{\small\setlength{\parskip}{0pt}\tableofcontents}\clearpage
+\input{chapters.tex}
+\clearpage\appendix\input{listings.tex}
+\end{document}

@@ -1,0 +1,53 @@
+{
+  "all_causes_equal": true,
+  "all_final_state_arrays_exact_equal": true,
+  "final_state_arrays": {
+    "beta": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "inner_t": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "lambda_outer": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "outer_r": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "rho": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "u": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "xi": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "y": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "z1": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    },
+    "z2": {
+      "exact_equal": true,
+      "max_abs_difference": 0.0
+    }
+  },
+  "maximum_final_state_absolute_difference": 0.0,
+  "note": "Wall-clock/backend elapsed times are intentionally excluded from deterministic equality requirements.",
+  "primary_cause_equal": true,
+  "protocol_repro_atol": 1e-10,
+  "protocol_repro_rtol": 1e-10,
+  "reproducibility_pass": true,
+  "termination_reason_equal": true
+}

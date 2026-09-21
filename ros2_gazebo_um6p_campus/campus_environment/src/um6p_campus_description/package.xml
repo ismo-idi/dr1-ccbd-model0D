@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>um6p_campus_description</name>
+  <version>1.0.0</version>
+  <description>Paused UM6P-inspired campus environment preparation.</description>
+  <maintainer email="ismo-idi@users.noreply.github.com">Ismael Assoumane Idi</maintainer>
+  <license>UNLICENSED</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "original_files_identical": 185,
+  "changed_delivery_files": [
+    ".gitignore",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "checkpoints/STATE.md",
+    "SHA256SUMS"
+  ],
+  "all_original_package_files_unchanged": true,
+  "original_pdf_unchanged": true
+}

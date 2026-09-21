@@ -1,0 +1,11 @@
+{
+  "config_sha256": "a9120c15840c8ec1605f8ce5d21d946ac1734672bde044ea1e9bacbc55750784",
+  "core_hash_files_checked": 9,
+  "errors": [],
+  "max_final_state_abs_diff": 0.0,
+  "obstacle_run_present": false,
+  "reproducibility_pass": true,
+  "run1_termination": "LOCAL_ORACLE_ABORT",
+  "run2_termination": "LOCAL_ORACLE_ABORT",
+  "status": "PASS"
+}

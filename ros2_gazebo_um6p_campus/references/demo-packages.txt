@@ -1,0 +1,13 @@
+# Additional/direct C++ development dependencies; existing stack already supplies them.
+ros-jazzy-gz-sim-vendor
+ros-jazzy-gz-plugin-vendor
+ros-jazzy-ros-gz-bridge
+ros-jazzy-rosgraph-msgs
+ros-jazzy-std-msgs
+build-essential
+cmake
+ros-jazzy-gz-gui-vendor
+qtbase5-dev
+qtdeclarative5-dev
+qtquickcontrols2-5-dev
+qml-module-qtquick-controls2

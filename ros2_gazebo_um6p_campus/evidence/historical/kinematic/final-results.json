@@ -1,0 +1,30 @@
+[
+  {
+    "run": "delivery-wave1-gui",
+    "status": "PASS",
+    "completed_at": 51.92,
+    "min_pair": 3.5316094555832684,
+    "min_ball": null
+  },
+  {
+    "run": "delivery-wave2-gui",
+    "status": "PASS",
+    "completed_at": 54.22,
+    "min_pair": 3.530266455910784,
+    "min_ball": 4.366646310385122
+  },
+  {
+    "run": "clean-wave1-final",
+    "status": "PASS",
+    "completed_at": 51.92,
+    "min_pair": 3.5316094555832684,
+    "min_ball": null
+  },
+  {
+    "run": "clean-wave2-final",
+    "status": "PASS",
+    "completed_at": 54.22,
+    "min_pair": 3.530266455910784,
+    "min_ball": 4.366646310385122
+  }
+]

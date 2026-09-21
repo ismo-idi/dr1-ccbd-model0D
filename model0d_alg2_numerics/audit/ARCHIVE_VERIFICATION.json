@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "date": "2026-09-13",
+  "original_input_files": 188,
+  "encoded_historical_cache_files": 4,
+  "original_manifest_entries_recovered": {
+    "attempt1": 76,
+    "attempt2a": 114
+  },
+  "lossless_compressed_log_files": 8,
+  "restored_files_in_isolated_check": 12,
+  "saved_evidence_audit_repeated_without_solver": true,
+  "new_document_links_checked": 44,
+  "scientific_pre_run_records_preserved": [
+    "MODEL0D_NUMERICAL_PROTOCOL_AND_READINESS_V1_0_11_SEP_2026.md",
+    "STEP2_RESEARCHER_APPROVED_PRE_STEP3_FREEZE_12_SEP_2026.md",
+    "verification/STEP2_SHA256_MANIFEST.txt",
+    "preparation/PRE_ARCHIVE_ROOT_README.md"
+  ],
+  "simulation_executed": false,
+  "claim_scope": "Reproducible negative experiment; no successful validation; no outer iteration completed; no body-overlap claim"
+}

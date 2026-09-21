@@ -1,0 +1,16 @@
+Step-1 implementation environment snapshot (11 Sep 2026)
+Python 3.13.5
+NumPy 2.3.5
+SciPy 1.17.0
+Matplotlib 3.10.8
+CasADi 3.7.2
+CasADi IPOPT plugin: available
+
+Approved deterministic execution environment variables for later runs:
+PYTHONHASHSEED=0
+OMP_NUM_THREADS=1
+OPENBLAS_NUM_THREADS=1
+MKL_NUM_THREADS=1
+
+This file records implementation readiness only. No Model-0D baseline outcome
+has been executed or inspected in Step 1.

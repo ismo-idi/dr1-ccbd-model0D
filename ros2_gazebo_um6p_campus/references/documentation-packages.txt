@@ -1,0 +1,7 @@
+# Optional tutorial compilation and page inspection (Ubuntu apt packages).
+texlive-latex-recommended
+texlive-latex-extra
+texlive-fonts-recommended
+latexmk
+poppler-utils
+python3-pil

@@ -1,0 +1,4 @@
+$ pytest -q --disable-warnings --junitxml=verification/pytest_results.xml
+.....................................................                    [100%]
+53 passed in 2.51s
+EXIT_CODE=0

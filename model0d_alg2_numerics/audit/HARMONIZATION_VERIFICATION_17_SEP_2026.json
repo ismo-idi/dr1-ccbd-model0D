@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-17",
+  "status": "PASS within pre-PDF scope",
+  "baseline_commit": "e3a8af05cbb40793f6b48f26ffe042dc51f0ddca",
+  "baseline_active_files_git_hash_verified": 240,
+  "raw_input_files_byte_identical": 188,
+  "encoded_historical_cache_files_identical": 4,
+  "lossless_restore_files_in_isolated_copy": 12,
+  "original_package_manifests_verified": {
+    "attempt_1": 76,
+    "attempt_2": 114
+  },
+  "saved_state_audit_recomputed_without_solver": true,
+  "saved_state_audit_matches_historical_results": true,
+  "comparison_csv_only_attempt_label_changed": true,
+  "presentation_figure_bytes_unchanged": true,
+  "auditor_script_only_two_directory_locators_changed": true,
+  "new_local_markdown_links_checked": 48,
+  "new_local_markdown_links_broken": [],
+  "model_pdf_and_tex_unchanged": true,
+  "old_main_remote_tree_untouched": "7df8b0b7b2293d3516312551e3bb16a08a05c002",
+  "simulation_executed": false,
+  "remote_write_or_commit_performed": false,
+  "scope_limit": "Local pre-PDF review only. No claim of a completed mathematical/notation audit, revised PDF approval, final handoff or final whole-repository consistency clearance."
+}

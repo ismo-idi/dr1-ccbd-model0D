@@ -1,0 +1,17 @@
+{
+  "demo_1_no_obstacle.mp4": {
+    "bytes": 8403418,
+    "sha256": "7f9c21a75bcfc50cdbb4a3f481423bc2fca331f7fccef736ead0faaf5ad62238",
+    "source": "User-supplied original recording; publication authorized in latest message",
+    "transcoded": false,
+    "duration_seconds": 32.134,
+    "video_tracks": [
+      {
+        "width": 1920.0,
+        "height": 1080.0
+      }
+    ],
+    "container_structure": "PASS: MP4 atoms and required moov/mvhd/track headers",
+    "full_video_decode": "NOT VERIFIED: local GStreamer reports missing H.264 High Profile decoder; no package installed"
+  }
+}

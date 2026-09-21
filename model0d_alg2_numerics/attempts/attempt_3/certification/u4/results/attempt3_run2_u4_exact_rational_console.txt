@@ -1,0 +1,6 @@
+{
+  "MODEL0D_SAFETY_CERTIFIED": true,
+  "uav_min_squared_margin_decimal": "4.3946965024440438902085292458877082772021802846095E-7",
+  "uav_k": 3,
+  "regime": "interior"
+}

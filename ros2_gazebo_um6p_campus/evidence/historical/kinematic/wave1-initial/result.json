@@ -1,0 +1,69 @@
+{
+  "status": "FAIL",
+  "wave": 1,
+  "gui": false,
+  "initial_entities": [
+    "campus_buildings",
+    "courtyard",
+    "landing_pads",
+    "landscaping",
+    "pergola",
+    "uav_1",
+    "uav_2",
+    "um6p_landmark"
+  ],
+  "pause_check": "PASS",
+  "midflight_state": {
+    "tick": 510,
+    "sim_time": 10.2,
+    "paused": true,
+    "wave": 1,
+    "status": "RUNNING",
+    "poses": [
+      [
+        -1.7455764228357662,
+        -11.110414780827316,
+        2.8
+      ],
+      [
+        3.6,
+        -8.2,
+        2.8
+      ]
+    ],
+    "phases": [
+      "TRAVEL",
+      "YIELD"
+    ],
+    "yield_ticks": 203,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "completed_state": {
+    "tick": 1785,
+    "sim_time": 35.7,
+    "paused": false,
+    "wave": 1,
+    "status": "COMPLETE",
+    "poses": [
+      [
+        3.6,
+        -19.5,
+        0.12
+      ],
+      [
+        -3.6,
+        -19.5,
+        0.12
+      ]
+    ],
+    "phases": [
+      "LANDED",
+      "LANDED"
+    ],
+    "yield_ticks": 531,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "exit_code": 0
+}

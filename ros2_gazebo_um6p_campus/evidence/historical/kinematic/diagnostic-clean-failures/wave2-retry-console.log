@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus kinematic clean reproduction/tests/verify_demo.py", line 82, in <module>
+    scene=scene_info()
+          ^^^^^^^^^^^^
+  File "/home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6/campus kinematic clean reproduction/tests/verify_demo.py", line 55, in scene_info
+    raise TimeoutError('scene service did not become ready')
+TimeoutError: scene service did not become ready

@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "mode": "headless",
+  "runs": [
+    {
+      "pid": 43472,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-1",
+      "stats_samples": 51,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "pid": 43523,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-2",
+      "stats_samples": 50,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "stats_tail": [
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    }
+  ]
+}

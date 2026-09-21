@@ -1,0 +1,109 @@
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: __pycache__
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: test_activity_aware_multiplier_diagnostic.py
+diff -ru '--exclude=*.pyc' model0d_attempt2a_original/model0d_alg2_numerics/tests/test_control_flow.py model0d_attempt2a/model0d_alg2_numerics/tests/test_control_flow.py
+--- model0d_attempt2a_original/model0d_alg2_numerics/tests/test_control_flow.py	2026-09-12 17:45:22.000000000 +0000
++++ model0d_attempt2a/model0d_alg2_numerics/tests/test_control_flow.py	2026-09-13 09:25:37.299447143 +0000
+@@ -56,6 +56,8 @@
+         differentiable_rows=[],
+         omitted_rows=[],
+         omitted_reasons={},
++        inactive_zeroed_rows=[],
++        inactive_zeroed_reasons={},
+         near_active_rows=[],
+         nonsmooth_blocking_rows=[],
+         R_dual=0.0,
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: test_local_nlp_contract.py.attempt1
+
+--- NEW FILE: tests/test_activity_aware_multiplier_diagnostic.py ---
+--- /dev/null	2026-09-13 09:22:59.874828528 +0000
++++ tests/test_activity_aware_multiplier_diagnostic.py	2026-09-13 09:25:37.299561143 +0000
+@@ -0,0 +1,89 @@
++from pathlib import Path
++
++import numpy as np
++
++from src.config import load_config
++from src.diagnostics import local_oracle_diagnostics
++from src.local_nlp import LocalSolveResult, build_local_nlp
++from src.tcc import assemble_tcc, stationary_exact_tcc_initialization
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def _synthetic_result(local, z, mu, phi, status="SYNTHETIC"):
++    return LocalSolveResult(
++        agent=local.agent,
++        z=np.asarray(z, float).copy(),
++        mu=np.asarray(mu, float).copy(),
++        phi=float(phi),
++        backend_success=True,
++        backend_status=status,
++        backend_iterations=0,
++        backend_elapsed_s=0.0,
++        raw_stats={},
++    )
++
++
++def test_strictly_inactive_workspace_negative_backend_multiplier_is_zeroed_only_for_diagnostic():
++    cfg = load_config(ROOT / "configs" / "baseline_2uav_0obs.json")
++    ops = assemble_tcc(cfg)
++    local = build_local_nlp(2, cfg, ops)
++    _, z2, u = stationary_exact_tcc_initialization(cfg, ops)
++    xi = np.zeros(cfg.Q)
++    y = np.zeros(cfg.Q)
++
++    g = local.eval_g(z2)
++    # Pick a workspace row that is far from active at the stationary start.
++    candidate_rows = [m.row for m in local.metas if m.family == "W" and g[m.row] < -1.0]
++    assert candidate_rows
++    row = candidate_rows[0]
++    mu = np.zeros(local.n_constraints)
++    mu[row] = -1e-5  # deliberately violates the raw sign threshold
++
++    result = _synthetic_result(local, z2, mu, local.eval_phi(z2, u, xi, y, 4.0))
++    diag = local_oracle_diagnostics(local, result, z2, u, xi, y, 4.0)
++
++    assert diag.raw_mu_backend[row] == -1e-5
++    assert diag.diagnostic_mu[row] == 0.0
++    assert row in diag.inactive_zeroed_rows
++    assert str(row) in diag.inactive_zeroed_reasons
++    assert diag.R_dual_normalized == 0.0
++
++
++def test_near_active_workspace_negative_multiplier_is_not_zeroed_and_still_fails_dual_sign_test():
++    cfg = load_config(ROOT / "configs" / "baseline_2uav_0obs.json")
++    ops = assemble_tcc(cfg)
++    local = build_local_nlp(2, cfg, ops)
++    _, z2, u = stationary_exact_tcc_initialization(cfg, ops)
++    xi = np.zeros(cfg.Q)
++    y = np.zeros(cfg.Q)
++
++    # Move one free coordinate exactly onto the workspace upper boundary so the
++    # corresponding canonical workspace row is active (g=0).
++    z = z2.copy()
++    z[0] = cfg.workspace_upper[0]
++    g = local.eval_g(z)
++    active_rows = [m.row for m in local.metas if m.family == "W" and abs(g[m.row]) < 1e-12]
++    assert active_rows
++    row = active_rows[0]
++    mu = np.zeros(local.n_constraints)
++    mu[row] = -1e-5
++
++    result = _synthetic_result(local, z, mu, local.eval_phi(z, u, xi, y, 4.0))
++    diag = local_oracle_diagnostics(local, result, z, u, xi, y, 4.0)
++
++    assert diag.raw_mu_backend[row] == -1e-5
++    assert diag.diagnostic_mu[row] == -1e-5
++    assert row not in diag.inactive_zeroed_rows
++    assert diag.pass_dual is False
++    assert "FIRST_BLOCK_ORACLE_FAILED" in diag.failure_codes
++
++
++def test_activity_aware_zeroing_uses_existing_family_aware_buffer_without_retuning_thresholds():
++    cfg = load_config(ROOT / "configs" / "baseline_2uav_0obs.json")
++    # The amendment reuses the already-approved values rather than changing them.
++    assert cfg.t["inactive_factor"] == 100.0
++    assert cfg.t["tau_W"] == 1e-8
++    assert cfg.t["dual_normalized"] == 1e-8
++    assert cfg.t["complementarity"] == 1e-6
++    assert cfg.t["stationarity_normalized"] == 1e-6

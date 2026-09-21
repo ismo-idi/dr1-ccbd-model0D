@@ -1,0 +1,16 @@
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+{
+  "scenario_id": "baseline_2uav_0obs",
+  "termination_reason": "FINITE_OUTER_STOP",
+  "primary_cause": null,
+  "all_causes": [],
+  "elapsed_s": 155.981345626,
+  "output": "/mnt/data/attempt3_checkpointC_execution/attempt3_checkpointAB/runs/attempt3_run1"
+}
+[3JTERM environment variable not set.

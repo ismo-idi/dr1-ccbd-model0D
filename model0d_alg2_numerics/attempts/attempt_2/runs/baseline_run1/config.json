@@ -1,0 +1,137 @@
+{
+  "algorithm": {
+    "beta0": 1.0,
+    "eps1_scale": 0.0001,
+    "eps2_scale": 0.0001,
+    "eps3_scale": 1e-06,
+    "lambda_initial": 0.0,
+    "lambda_lower": -100.0,
+    "lambda_upper": 100.0,
+    "max_inner_iterations": 100,
+    "max_outer_iterations": 20,
+    "omega": 0.5,
+    "retry_count": 0,
+    "vartheta": 2.0,
+    "wall_clock_cap_s": 600.0
+  },
+  "backend": {
+    "ipopt.acceptable_iter": 0,
+    "ipopt.bound_relax_factor": 0.0,
+    "ipopt.compl_inf_tol": 1e-08,
+    "ipopt.constr_viol_tol": 1e-09,
+    "ipopt.dual_inf_tol": 1e-08,
+    "ipopt.hessian_approximation": "limited-memory",
+    "ipopt.max_iter": 500,
+    "ipopt.print_level": 0,
+    "ipopt.tol": 1e-09,
+    "name": "casadi_ipopt",
+    "print_time": false
+  },
+  "description": "Researcher-approved Model 0-D baseline: 2 UAVs, 0 obstacles, crossing goals.",
+  "implementation_base_commit": "de49211ddd924e4751b7303ec3f1f2949b16bb23",
+  "model": {
+    "K": 8,
+    "N": 2,
+    "a1_lower": [
+      -3.5,
+      -3.5
+    ],
+    "a1_upper": [
+      3.5,
+      3.5
+    ],
+    "alpha": [
+      20.0,
+      20.0
+    ],
+    "beta_obj": [
+      1.0,
+      1.0
+    ],
+    "delta_obs": [
+      0.1,
+      0.1
+    ],
+    "delta_uav": 0.2,
+    "dt": 0.5,
+    "goals": [
+      [
+        2.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.0
+      ]
+    ],
+    "obstacles": [],
+    "q": 2,
+    "radii": [
+      0.1,
+      0.1
+    ],
+    "starts": [
+      [
+        -2.0,
+        0.0
+      ],
+      [
+        0.0,
+        -2.0
+      ]
+    ],
+    "vmax": [
+      1.5,
+      1.5
+    ],
+    "workspace_lower": [
+      -3.0,
+      -3.0
+    ],
+    "workspace_upper": [
+      3.0,
+      3.0
+    ]
+  },
+  "protocol_file": "MODEL0D_NUMERICAL_PROTOCOL_AND_READINESS_V1_0_11_SEP_2026.md",
+  "repository_branch": "Model-0_24-Aug-2026",
+  "scenario_id": "baseline_2uav_0obs",
+  "schema_version": "1.0",
+  "seed": 20260911,
+  "tcc": {
+    "guardian_pair_1_2": 1,
+    "reduction_tree_edge": [
+      1,
+      2
+    ],
+    "source_2_copy_holders": [
+      1,
+      2
+    ],
+    "source_2_equality_edge": [
+      1,
+      2
+    ]
+  },
+  "thresholds": {
+    "complementarity": 1e-06,
+    "descent_relative": 1e-10,
+    "dual_normalized": 1e-08,
+    "inactive_factor": 100.0,
+    "integrity_relative": 1e-12,
+    "near_factor": 10.0,
+    "outer_xi": 1e-06,
+    "physical_numeric_margin": 1e-07,
+    "repro_atol": 1e-10,
+    "repro_rtol": 1e-10,
+    "stationarity_normalized": 1e-06,
+    "target": 1e-06,
+    "tau_A1": 1e-08,
+    "tau_W": 1e-08,
+    "tau_obs": 1e-08,
+    "tau_s": 1e-12,
+    "tau_spd": 1e-08,
+    "tau_uav": 1e-08,
+    "tcc_eq": 1e-06
+  }
+}

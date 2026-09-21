@@ -1,0 +1,15 @@
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: __pycache__
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: test_activity_aware_multiplier_diagnostic.py
+diff -ru '--exclude=*.pyc' model0d_attempt2a_original/model0d_alg2_numerics/tests/test_control_flow.py model0d_attempt2a/model0d_alg2_numerics/tests/test_control_flow.py
+--- model0d_attempt2a_original/model0d_alg2_numerics/tests/test_control_flow.py	2026-09-12 17:45:22.000000000 +0000
++++ model0d_attempt2a/model0d_alg2_numerics/tests/test_control_flow.py	2026-09-13 09:25:37.299447143 +0000
+@@ -56,6 +56,8 @@
+         differentiable_rows=[],
+         omitted_rows=[],
+         omitted_reasons={},
++        inactive_zeroed_rows=[],
++        inactive_zeroed_reasons={},
+         near_active_rows=[],
+         nonsmooth_blocking_rows=[],
+         R_dual=0.0,
+Only in model0d_attempt2a/model0d_alg2_numerics/tests: test_local_nlp_contract.py.attempt1

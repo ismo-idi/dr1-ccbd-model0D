@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "models": [
+    "courtyard",
+    "pergola",
+    "campus_buildings",
+    "um6p_landmark",
+    "landscaping",
+    "uav_1",
+    "uav_2"
+  ],
+  "meshes": 25,
+  "triangles": 25540,
+  "SDF_validation": "world plus all 7 models",
+  "resolved_from": "installed package"
+}
+{
+  "status": "PASS",
+  "mode": "headless",
+  "runs": [
+    {
+      "pid": 20402,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-1",
+      "stats_samples": 51,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "pid": 20494,
+      "names": [
+        "campus_buildings",
+        "courtyard",
+        "landscaping",
+        "pergola",
+        "uav_1",
+        "uav_2",
+        "um6p_landmark"
+      ],
+      "uav_poses": {
+        "uav_1": [
+          -3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          0.3
+        ],
+        "uav_2": [
+          3.6,
+          -8.2,
+          0.12,
+          0,
+          0,
+          -0.3
+        ]
+      },
+      "ros_nodes": [
+        "campus_evidence_bridge",
+        "campus_verifier"
+      ],
+      "bridge_received": "campus-paused-check-2",
+      "stats_samples": 50,
+      "stats_first": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "stats_last": {
+        "paused": true,
+        "iterations": 0,
+        "sim_sec": 0,
+        "sim_nsec": 0,
+        "stepping": false
+      },
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "stats_tail": [
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    },
+    {
+      "paused": true,
+      "iterations": 0,
+      "sim_sec": 0,
+      "sim_nsec": 0,
+      "stepping": false
+    }
+  ]
+}

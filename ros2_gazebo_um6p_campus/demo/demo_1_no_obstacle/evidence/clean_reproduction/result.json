@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "wave": 1,
+  "gui": false,
+  "ros_namespace": "campus_verify_f35ca4125fa241048d47cd5e00f09501",
+  "gz_partition": "campus_verify_f35ca4125fa241048d47cd5e00f09501",
+  "isolation": "unique Gazebo partition and ROS topics/node namespace",
+  "initial_entities": [
+    "campus_buildings",
+    "courtyard",
+    "demo_apron",
+    "landing_pads",
+    "landscaping",
+    "pergola",
+    "uav_1",
+    "uav_2",
+    "um6p_landmark"
+  ],
+  "pause_check": "PASS",
+  "midflight_state": {
+    "tick": 764,
+    "sim_time": 15.28,
+    "paused": true,
+    "wave": 1,
+    "status": "RUNNING",
+    "poses": [
+      [
+        -1.8844055049677066,
+        -15.777209019725603,
+        2.8
+      ],
+      [
+        1.9369620102859797,
+        -15.545084454569896,
+        2.8
+      ]
+    ],
+    "distances": [
+      3.8284110934413587,
+      6.546121881796655,
+      6.781987653182975
+    ],
+    "phases": [
+      "TRAVEL",
+      "YIELD"
+    ],
+    "yield_ticks": 14,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "completed_state": {
+    "tick": 2596,
+    "sim_time": 51.92,
+    "paused": false,
+    "wave": 1,
+    "status": "COMPLETE",
+    "poses": [
+      [
+        3.6,
+        -40,
+        0.12
+      ],
+      [
+        -3.6,
+        -40,
+        0.12
+      ]
+    ],
+    "distances": [
+      7.2,
+      18.456608572541164,
+      18.456608572541164
+    ],
+    "phases": [
+      "LANDED",
+      "LANDED"
+    ],
+    "yield_ticks": 213,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "telemetry_distances": "PASS",
+  "final_render_poses": {
+    "uav_1": [
+      3.6,
+      -40.0,
+      0.12
+    ],
+    "uav_2": [
+      -3.6,
+      -40.0,
+      0.12
+    ]
+  },
+  "ros_clock_max": 51.92,
+  "ros_messages": 1755,
+  "exit_code": 0,
+  "simultaneous_takeoff_tick": 150,
+  "yield_interval_ticks": [
+    751,
+    963
+  ],
+  "single_continuous_yield": "PASS",
+  "geometry_check": {
+    "status": "PASS",
+    "radius_bound": 1.2,
+    "measured_radii": {
+      "uav_1": 1.1362601394737915,
+      "uav_2": 1.1362601394737915
+    },
+    "scenery_triangles_inspected": 23432,
+    "near_corridor_triangle_boxes": 0,
+    "min_body_center_to_scenery_box": null,
+    "corridor_clear_by_broadphase": true,
+    "ground_check": "minimum vertex z = model z + .005; z>=.12, pads top .12; paving top 0",
+    "scope": "fixed geometry; sphere/inter-UAV checked separately; conservative triangle-AABB distance"
+  },
+  "trace_rows": 4120,
+  "min_pair": 3.5316094555832684,
+  "min_ball": null
+}

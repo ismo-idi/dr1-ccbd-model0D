@@ -1,0 +1,5 @@
+Python 3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]
+NumPy 2.3.5
+SciPy 1.17.0
+Matplotlib 3.10.8
+CasADi 3.7.2

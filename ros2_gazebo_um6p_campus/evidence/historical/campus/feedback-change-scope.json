@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "description_files_changed": [
+    "worlds/campus.sdf",
+    "models/courtyard/meshes/white.obj",
+    "models/courtyard/meshes/dark.obj",
+    "models/um6p_landmark/meshes/letter.obj",
+    "models/um6p_landmark/meshes/red.obj"
+  ],
+  "other_meshes_byte_identical": true,
+  "note": "UAV/building pose changes appear only in world; camera/expected-pose test updated separately"
+}

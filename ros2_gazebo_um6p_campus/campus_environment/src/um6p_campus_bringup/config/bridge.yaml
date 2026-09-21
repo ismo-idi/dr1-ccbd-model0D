@@ -1,0 +1,7 @@
+# A read-only informational channel. Tests publish text from Gazebo transport.
+- ros_topic_name: /campus/evidence
+  gz_topic_name: /campus/evidence
+  ros_type_name: std_msgs/msg/String
+  gz_type_name: gz.msgs.StringMsg
+  direction: GZ_TO_ROS
+  lazy: false

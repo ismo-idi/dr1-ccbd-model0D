@@ -1,0 +1,20 @@
+{
+  "casadi": "3.7.2",
+  "complete_algorithm2_runs_executed_step2": 0,
+  "component_tests_passed": 53,
+  "matplotlib": "3.10.8",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "protocol_git_blob_sha1": "38d0f0bb83cfa136ea614752d9aa2e67cb9fba0b",
+  "protocol_sha256": "5fe939984ece604c064ad21d748fb7ccbad08f2571d2decb3a072c5971c77262",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "repository_traceability_head": "de49211ddd924e4751b7303ec3f1f2949b16bb23",
+  "scipy": "1.17.0",
+  "source_statement_coverage_percent": 93,
+  "verification_commands_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "0"
+  }
+}

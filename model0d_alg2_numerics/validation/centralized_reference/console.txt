@@ -1,0 +1,64 @@
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+{
+ "purpose": "external validation oracle for the TCC copy-space reformulation; not a competing algorithm",
+ "backend": "IPOPT (Interior Point OPTimizer) via CasADi",
+ "ipopt_tol": 1e-10,
+ "multistart": {
+  "requested": 20,
+  "converged": 20,
+  "seed": 0
+ },
+ "objective": {
+  "F_star_centralized": 4.015742261564965,
+  "F_attempt3_distributed": 4.0157423760136215,
+  "absolute_gap": 1.1444865677390226e-07,
+  "relative_gap_percent": 2.8500000577552196e-06,
+  "distinct_converged_values_rounded_1e-9": [
+   4.015742262
+  ]
+ },
+ "distinct_global_minimizers_found": {
+  "count": 2,
+  "separation_l2_m": 0.9609102855881685,
+  "note": "Several distinct trajectories attain F* on this symmetric crossing instance. This is a numerical instance of the non-uniqueness proved in Decision Study 08: the objective is strictly convex, the feasible set is not."
+ },
+ "trajectory_agreement_nearest_minimizer": {
+  "l2_norm_difference_m": 3.261077006949802e-05,
+  "max_coordinate_difference_m": 8.875261982552174e-06
+ },
+ "centralized_optimum_uav_clearance_margins_m": [
+  1.7242452823079049,
+  1.029827836811986,
+  0.37199020108449665,
+  2.0896478991616618e-10,
+  1.0649314763355733e-10,
+  0.3649159306483105,
+  1.0124797408409352,
+  1.6979298740519373
+ ],
+ "centralized_optimum_min_uav_clearance_margin_m": 1.0649314763355733e-10,
+ "inputs": {
+  "config": "../../attempts/attempt_3/configs/baseline_2uav_0obs.json",
+  "config_sha256": "faf2338e9e72b4de44864c0bb922102d3752fe647f684efad2c9226f11a0af6d",
+  "state": "../../attempts/attempt_3/runs/attempt3_run1/final_state.npz",
+  "state_sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46"
+ },
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "numpy": "2.5.3",
+  "casadi": "3.8.1"
+ },
+ "non_claims": [
+  "multistart IPOPT (Interior Point OPTimizer) on a nonconvex feasible set is not a proof of global optimality",
+  "a finite number of starts is not exhaustive",
+  "Decision Study 08 proves Model 0-D has no general uniqueness guarantee",
+  "this validates TCC exactness numerically on one instance; it certifies neither convergence nor real-UAV safety"
+ ]
+}

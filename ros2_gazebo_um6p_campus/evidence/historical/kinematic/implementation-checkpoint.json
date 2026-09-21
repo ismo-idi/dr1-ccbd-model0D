@@ -1,0 +1,14 @@
+{
+  "status": "PAUSED_FOR_BASELINE_GITHUB_COMMIT",
+  "files": {
+    "src/um6p_campus_demo/CMakeLists.txt": "f256800a3841966bc41cc4d999c593aa1d92c417594f1a2957ea8c28df93ef3c",
+    "src/um6p_campus_demo/package.xml": "6bd5ec8a7f273a95da659875c22aebffcdd0742bc1eb06f11cb0e0090f4bef4c",
+    "src/um6p_campus_demo/tests/motion_check.cc": "d4dddfd71aafb9f971100bf57192311d9e89d771e130d50ae4d90e28bc682f6b",
+    "src/um6p_campus_demo/src/CampusKinematics.cc": "60eab5c4c56e7b1ac6e6455525eeb13be2e7b8e8b8a7ff998be43756a37d0577",
+    "src/um6p_campus_demo/include/Motion.hh": "c5b585d3d5044366c774f5136eb08a9eb2764dc803388731f7dcecfe8a69a7a5"
+  },
+  "core_check": "PASS standalone C++: wave1 35.7s min_pair 6.07215m; wave2 24.2s min_pair 7.2m min_ball 5.65134m",
+  "gazebo_demo": "NOT YET BUILT OR RUN",
+  "next": "finish launch/world generation then build and integrate test",
+  "processes": "none task-owned running"
+}

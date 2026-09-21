@@ -1,0 +1,143 @@
+{
+  "method": "exact dyadic binary64 reconstruction/enumeration plus exact Fraction bounds",
+  "non_timing_evidence_identical": true,
+  "runs": [
+    {
+      "assumption3_first_block_pass": false,
+      "backend": {
+        "accepted": true,
+        "finite_R_desc": 0.0,
+        "finite_R_stat": 1.2271677667763324e-09,
+        "status": "Solve_Succeeded"
+      },
+      "consistent_binary64_y1": [
+        -1.995670274728392,
+        -1.9956702747283919,
+        -1.9956702747283916,
+        -1.9956702747283914,
+        -1.9956702747283912
+      ],
+      "consistent_binary64_y2": [
+        -1.9826810991615411,
+        -1.982681099161541,
+        -1.9826810991615407,
+        -1.9826810991615405,
+        -1.9826810991615402
+      ],
+      "event": {
+        "agent": 2,
+        "r": 1,
+        "t": 1
+      },
+      "exact_derivative_interval": {
+        "formula": "8*y1 - 2*y2 + 12",
+        "lower_decimal": 4.95943730527415e-10,
+        "lower_den": 1125899906842624,
+        "lower_num": 558383,
+        "strictly_positive": true,
+        "upper_decimal": 4.95952612311612e-10,
+        "upper_den": 1125899906842624,
+        "upper_num": 558393
+      },
+      "exact_speed_upper_bounds": {
+        "k0_decimal": -0.5624812534790724,
+        "k0_den": 20282409603651670423947251286016,
+        "k0_num": -11408475177437967442479836660827,
+        "k0_strictly_inactive": true,
+        "k1_decimal": -0.5623312813180935,
+        "k1_den": 5070602400912917605986812821504,
+        "k1_num": -2851358345159962184494201477051,
+        "k1_strictly_inactive": true
+      },
+      "exact_stationarity_pass": false,
+      "logged_upper_workspace": {
+        "y1_minus_3": -4.995670274728392,
+        "y2_minus_3": -4.982681099161541
+      },
+      "normal_cone_coordinate_conclusion": "all constraints involving p2_y1 are strictly inactive; all other local constraints are independent of p2_y1; hence every exact local normal has p2_y1 component 0",
+      "phi_interval": {
+        "minimum_certified_decrease_decimal": 264.84022689420675,
+        "new_lower_decimal": 55.15977310579321,
+        "new_lower_den": 20282409603651670423947251286016,
+        "new_lower_num": 1118773111776187243799968228075665,
+        "new_upper_decimal": 55.15977310579322,
+        "new_upper_den": 10141204801825835211973625643008,
+        "new_upper_num": 559386555888093797419623611873759,
+        "old_decimal": 320.0,
+        "old_den": 1,
+        "old_num": 320,
+        "strict_nonincrease_certified": true
+      },
+      "run": "attempt3_run1"
+    },
+    {
+      "assumption3_first_block_pass": false,
+      "backend": {
+        "accepted": true,
+        "finite_R_desc": 0.0,
+        "finite_R_stat": 1.2271677667763324e-09,
+        "status": "Solve_Succeeded"
+      },
+      "consistent_binary64_y1": [
+        -1.995670274728392,
+        -1.9956702747283919,
+        -1.9956702747283916,
+        -1.9956702747283914,
+        -1.9956702747283912
+      ],
+      "consistent_binary64_y2": [
+        -1.9826810991615411,
+        -1.982681099161541,
+        -1.9826810991615407,
+        -1.9826810991615405,
+        -1.9826810991615402
+      ],
+      "event": {
+        "agent": 2,
+        "r": 1,
+        "t": 1
+      },
+      "exact_derivative_interval": {
+        "formula": "8*y1 - 2*y2 + 12",
+        "lower_decimal": 4.95943730527415e-10,
+        "lower_den": 1125899906842624,
+        "lower_num": 558383,
+        "strictly_positive": true,
+        "upper_decimal": 4.95952612311612e-10,
+        "upper_den": 1125899906842624,
+        "upper_num": 558393
+      },
+      "exact_speed_upper_bounds": {
+        "k0_decimal": -0.5624812534790724,
+        "k0_den": 20282409603651670423947251286016,
+        "k0_num": -11408475177437967442479836660827,
+        "k0_strictly_inactive": true,
+        "k1_decimal": -0.5623312813180935,
+        "k1_den": 5070602400912917605986812821504,
+        "k1_num": -2851358345159962184494201477051,
+        "k1_strictly_inactive": true
+      },
+      "exact_stationarity_pass": false,
+      "logged_upper_workspace": {
+        "y1_minus_3": -4.995670274728392,
+        "y2_minus_3": -4.982681099161541
+      },
+      "normal_cone_coordinate_conclusion": "all constraints involving p2_y1 are strictly inactive; all other local constraints are independent of p2_y1; hence every exact local normal has p2_y1 component 0",
+      "phi_interval": {
+        "minimum_certified_decrease_decimal": 264.84022689420675,
+        "new_lower_decimal": 55.15977310579321,
+        "new_lower_den": 20282409603651670423947251286016,
+        "new_lower_num": 1118773111776187243799968228075665,
+        "new_upper_decimal": 55.15977310579322,
+        "new_upper_den": 10141204801825835211973625643008,
+        "new_upper_num": 559386555888093797419623611873759,
+        "old_decimal": 320.0,
+        "old_den": 1,
+        "old_num": 320,
+        "strict_nonincrease_certified": true
+      },
+      "run": "attempt3_run2"
+    }
+  ],
+  "terminal_conclusion": "Historical Attempt 3 fails exact Sun-Sun Assumption 3 because exact first-block stationarity fails at r=1,t=1,agent=2; exact nonincrease passes there."
+}

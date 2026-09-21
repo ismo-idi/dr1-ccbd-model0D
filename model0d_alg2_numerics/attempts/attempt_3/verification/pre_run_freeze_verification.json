@@ -1,0 +1,120 @@
+{
+  "attempt2_config_py_reference": {
+    "actual": "3d035be4ac0ca7e82e1a7063193ae12274bad957ce5d751fa21b3684910145ae",
+    "expected": "3d035be4ac0ca7e82e1a7063193ae12274bad957ce5d751fa21b3684910145ae",
+    "pass": true
+  },
+  "attempt3_metadata": {
+    "pass": true,
+    "value": {
+      "attempt_id": "attempt_3",
+      "fresh_process_repetitions": 2,
+      "outcome_driven_retuning_permitted": false,
+      "parent_branch_head": "79cd3aa4bfeabc12ea3eeb2649b1e3d341ce6f1c",
+      "route": "finite_cap_isolation",
+      "single_experimental_change": "algorithm.max_inner_iterations: 100 -> 1000",
+      "source_attempt": "attempt_2"
+    }
+  },
+  "baseline_cap_frozen": {
+    "pass": true,
+    "value": 1000
+  },
+  "baseline_config_scientific_diff": {
+    "all_differences": [
+      {
+        "new": 1000,
+        "old": 100,
+        "path": "algorithm.max_inner_iterations"
+      },
+      {
+        "new": {
+          "attempt_id": "attempt_3",
+          "fresh_process_repetitions": 2,
+          "outcome_driven_retuning_permitted": false,
+          "parent_branch_head": "79cd3aa4bfeabc12ea3eeb2649b1e3d341ce6f1c",
+          "route": "finite_cap_isolation",
+          "single_experimental_change": "algorithm.max_inner_iterations: 100 -> 1000",
+          "source_attempt": "attempt_2"
+        },
+        "old": "<MISSING>",
+        "path": "attempt3"
+      },
+      {
+        "new": "Attempt 3 finite-cap isolation: inherited Attempt-2 crossing baseline, with max_inner_iterations increased from 100 to 1000 only.",
+        "old": "Researcher-approved Model 0-D baseline: 2 UAVs, 0 obstacles, crossing goals.",
+        "path": "description"
+      }
+    ],
+    "nonmetadata_differences": [
+      {
+        "new": 1000,
+        "old": 100,
+        "path": "algorithm.max_inner_iterations"
+      }
+    ],
+    "pass": true
+  },
+  "config_py_only_cap_line_changed": {
+    "changes": [
+      "-        \"max_inner_iterations\": 100,",
+      "+        \"max_inner_iterations\": 1000,"
+    ],
+    "pass": true
+  },
+  "no_retry_unchanged": {
+    "pass": true,
+    "value": 0
+  },
+  "overall_pass": true,
+  "runs_directory_empty": {
+    "entries": [],
+    "pass": true
+  },
+  "unchanged_source_hashes": {
+    "run_experiment.py": {
+      "actual": "555881830578179db1c3b8e48a309a5e4276004595c7732d59fec065cc552823",
+      "expected": "555881830578179db1c3b8e48a309a5e4276004595c7732d59fec065cc552823",
+      "pass": true
+    },
+    "src/__init__.py": {
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pass": true
+    },
+    "src/diagnostics.py": {
+      "actual": "4bcef4c418c46d6938f4e50b4c1ec0b39811e821f3d017a7f657837e7945e84a",
+      "expected": "4bcef4c418c46d6938f4e50b4c1ec0b39811e821f3d017a7f657837e7945e84a",
+      "pass": true
+    },
+    "src/geometry.py": {
+      "actual": "bbcee181c372d462e2b56dcbe4bee831a2f13fe9f97298eb6747c719e5ba47a8",
+      "expected": "bbcee181c372d462e2b56dcbe4bee831a2f13fe9f97298eb6747c719e5ba47a8",
+      "pass": true
+    },
+    "src/io_utils.py": {
+      "actual": "c448d2108f0b846c9c2897a8a20a3cac7c702547d08812fb0299fbaa8b778239",
+      "expected": "c448d2108f0b846c9c2897a8a20a3cac7c702547d08812fb0299fbaa8b778239",
+      "pass": true
+    },
+    "src/local_nlp.py": {
+      "actual": "789bc9da93e593d9ff62ab874fe20e50188b2800d3fab6815badb0275adee504",
+      "expected": "789bc9da93e593d9ff62ab874fe20e50188b2800d3fab6815badb0275adee504",
+      "pass": true
+    },
+    "src/sunsun_algorithm2.py": {
+      "actual": "dfdc931ae1e1ce17d37e8e7b886cb313047c30cfab405ba4a3be253b61719024",
+      "expected": "dfdc931ae1e1ce17d37e8e7b886cb313047c30cfab405ba4a3be253b61719024",
+      "pass": true
+    },
+    "src/tcc.py": {
+      "actual": "852af3aea5228a9efba8d87a8ba66d4856b4755a0f840d11defa4e71f834658f",
+      "expected": "852af3aea5228a9efba8d87a8ba66d4856b4755a0f840d11defa4e71f834658f",
+      "pass": true
+    }
+  },
+  "wall_clock_unchanged": {
+    "pass": true,
+    "value": 600.0
+  }
+}

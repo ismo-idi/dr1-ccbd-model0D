@@ -1,0 +1,6 @@
+Repository: ismo-idi/CCBO_Model1
+Branch: Model-0_24-Aug-2026
+HEAD: 79cd3aa4bfeabc12ea3eeb2649b1e3d341ce6f1c
+Message: Finalize post-meeting harmonization structure and timetable status
+Author date: 2026-09-18T11:02:10Z
+Rechecked during Checkpoint A/B finalization; no GitHub write performed.

@@ -1,0 +1,25 @@
+attempt,metric,unit,value,evidence
+Attempt 1,last_complete_inner_index,index,16,historical saved-evidence audit
+Attempt 1,physical_objective,objective units,4.324447512461001,historical saved-evidence audit
+Attempt 1,direct_TCC_disagreement,m,0.3029946622823656,historical saved-evidence audit
+Attempt 1,target_residual,m,0.21424958036318856,historical saved-evidence audit
+Attempt 1,minimum_source_center_distance,m,0.500849953505317,historical saved-evidence audit
+Attempt 2,last_complete_inner_index,index,100,historical saved-evidence audit
+Attempt 2,physical_objective,objective units,3.9962839227687965,historical saved-evidence audit
+Attempt 2,direct_TCC_disagreement,m,0.12581049903927163,historical saved-evidence audit
+Attempt 2,target_residual,m,0.08896145701513258,historical saved-evidence audit
+Attempt 2,minimum_source_center_distance,m,0.2861322983824108,historical saved-evidence audit
+Attempt 2,minimum_source_safety_margin,m,-0.11386770161758925,historical saved-evidence audit
+Attempt 3,outer_index,index,10,official saved summary
+Attempt 3,final_inner_index,index,3,official saved summary
+Attempt 3,total_complete_inner_iterations,count,853,official history
+Attempt 3,physical_objective,objective units,4.0157423760136215,official saved summary
+Attempt 3,direct_TCC_disagreement,m,7.850016699224997e-07,official saved summary
+Attempt 3,target_residual,m,5.550800040449635e-07,official saved summary
+Attempt 3,xi_norm,source residual norm,5.181917114188811e-07,official saved summary
+Attempt 3,R1,source residual norm,9.780703313666428e-06,official saved summary
+Attempt 3,R2,source residual norm,2.6597130100645397e-15,official saved summary
+Attempt 3,R3,source residual norm,4.157895314285983e-08,official saved summary
+Attempt 3,minimum_source_center_distance,m,0.4000005493366856,U4 exact certificate readable decimal
+Attempt 3,minimum_source_safety_margin,m,5.493366855920128e-07,U4 exact certificate readable decimal
+Attempt 3,critical_squared_safety_margin,m^2,4.394696502444044e-07,U4 exact rational certificate

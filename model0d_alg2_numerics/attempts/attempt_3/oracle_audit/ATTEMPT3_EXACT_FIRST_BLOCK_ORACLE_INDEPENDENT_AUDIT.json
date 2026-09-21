@@ -1,0 +1,34 @@
+{
+  "method": "independent exact IEEE-754 rounding-cell enclosure; no candidate-float enumeration",
+  "runs": [
+    {
+      "derivative_lower": "558383/1125899906842624",
+      "derivative_lower_decimal": 4.95943730527415e-10,
+      "derivative_upper": "558393/1125899906842624",
+      "normal_component_zero": true,
+      "run": "attempt3_run1",
+      "speed0_decimal": -0.5624812534790724,
+      "speed0_upper": "-11408475177437967442479836660827/20282409603651670423947251286016",
+      "speed1_decimal": -0.5623312813180935,
+      "speed1_upper": "-2851358345159962184494201477051/5070602400912917605986812821504",
+      "stationarity_impossible": true,
+      "strict_positive": true,
+      "workspace_y1_strict": true
+    },
+    {
+      "derivative_lower": "558383/1125899906842624",
+      "derivative_lower_decimal": 4.95943730527415e-10,
+      "derivative_upper": "558393/1125899906842624",
+      "normal_component_zero": true,
+      "run": "attempt3_run2",
+      "speed0_decimal": -0.5624812534790724,
+      "speed0_upper": "-11408475177437967442479836660827/20282409603651670423947251286016",
+      "speed1_decimal": -0.5623312813180935,
+      "speed1_upper": "-2851358345159962184494201477051/5070602400912917605986812821504",
+      "stationarity_impossible": true,
+      "strict_positive": true,
+      "workspace_y1_strict": true
+    }
+  ],
+  "verdict": "PASS independent audit: exact first-block stationarity is impossible at r=1,t=1,agent=2 in both official repetitions."
+}

@@ -1,0 +1,31 @@
+{
+  "scientific_date": "2026-09-18",
+  "repository_sync_date": "2026-09-19",
+  "attempt": 3,
+  "official_repetitions": 2,
+  "simulation_rerun_during_closure": false,
+  "termination_reason": "FINITE_OUTER_STOP",
+  "final_outer_r": 10,
+  "final_inner_t": 3,
+  "total_complete_inner_iterations": 853,
+  "NUMERICALLY_VALID": true,
+  "TCC_CONSISTENT": true,
+  "PHYSICAL_POSTCHECK_NUMERIC_PASS": true,
+  "MODEL0D_SAFETY_CERTIFIED": true,
+  "U3": "RESOLVED_BY_ROUTE_A_MFCQ_ACTUAL_SEQUENCE",
+  "U3_FOR_ATTEMPT_3": "HYPOTHESES_NOT_MET_ASSUMPTION_3_FALSE",
+  "U4": "RESOLVED_FOR_ATTEMPT3_BY_U4_E1_WITH_U4_E2_INDEPENDENT_AUDIT",
+  "FINITE_FIRST_BLOCK_EXACT_ORACLE": false,
+  "SUNSUN_ALGORITHMICALLY_CERTIFIED": false,
+  "FULLY_CERTIFIED_MODEL0D_SUNSUN_RESULT": false,
+  "exact_oracle_counterexample": {
+    "outer_r": 1,
+    "inner_t": 1,
+    "agent": 2,
+    "stationarity": false,
+    "nonincrease": true,
+    "derivative_lower_exact": "558383/1125899906842624",
+    "derivative_upper_exact": "558393/1125899906842624"
+  },
+  "claim": "Reproducible finite numerical Model-0D/TCC success with exact deterministic saved-plan physical-safety certification and resolved U3/U4; historical binary64 execution is not an exact Sun-Sun Assumption-3 execution."
+}

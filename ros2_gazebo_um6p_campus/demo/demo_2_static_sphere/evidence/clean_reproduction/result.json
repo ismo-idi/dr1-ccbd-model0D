@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "wave": 2,
+  "gui": false,
+  "ros_namespace": "campus_verify_9ee3fca3c2f44de988a991f2780db998",
+  "gz_partition": "campus_verify_9ee3fca3c2f44de988a991f2780db998",
+  "isolation": "unique Gazebo partition and ROS topics/node namespace",
+  "initial_entities": [
+    "campus_buildings",
+    "courtyard",
+    "demo_apron",
+    "landing_pads",
+    "landscaping",
+    "pergola",
+    "static_sphere",
+    "uav_1",
+    "uav_2",
+    "um6p_landmark"
+  ],
+  "near_obstacle_state": {
+    "tick": 1069,
+    "sim_time": 21.38,
+    "paused": true,
+    "wave": 2,
+    "status": "RUNNING",
+    "poses": [
+      [
+        -4.3,
+        -21.124999999999932,
+        2.8
+      ],
+      [
+        4.3,
+        -21.124999999999932,
+        2.8
+      ]
+    ],
+    "distances": [
+      8.6,
+      4.453450909126552,
+      4.453450909126552
+    ],
+    "phases": [
+      "BYPASS",
+      "BYPASS"
+    ],
+    "yield_ticks": 0,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "pause_check": "PASS",
+  "midflight_state": {
+    "tick": 1714,
+    "sim_time": 34.28,
+    "paused": true,
+    "wave": 2,
+    "status": "RUNNING",
+    "poses": [
+      [
+        -1.6602904730904766,
+        -31.343825803774997,
+        2.8
+      ],
+      [
+        2.189998070463618,
+        -30.472155073920483,
+        2.8
+      ]
+    ],
+    "distances": [
+      3.947724880220127,
+      9.520569578881638,
+      8.783570068325917
+    ],
+    "phases": [
+      "BYPASS",
+      "YIELD"
+    ],
+    "yield_ticks": 60,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "completed_state": {
+    "tick": 2711,
+    "sim_time": 54.22,
+    "paused": false,
+    "wave": 2,
+    "status": "COMPLETE",
+    "poses": [
+      [
+        3.6,
+        -40,
+        0.12
+      ],
+      [
+        -3.6,
+        -40,
+        0.12
+      ]
+    ],
+    "distances": [
+      7.2,
+      18.456608572541164,
+      18.456608572541164
+    ],
+    "phases": [
+      "LANDED",
+      "LANDED"
+    ],
+    "yield_ticks": 243,
+    "rejected_ticks": 0,
+    "reason": ""
+  },
+  "telemetry_distances": "PASS",
+  "final_render_poses": {
+    "uav_1": [
+      3.6,
+      -40.0,
+      0.12
+    ],
+    "uav_2": [
+      -3.6,
+      -40.0,
+      0.12
+    ]
+  },
+  "ros_clock_max": 54.22,
+  "ros_messages": 1852,
+  "exit_code": 0,
+  "simultaneous_takeoff_tick": 150,
+  "yield_interval_ticks": [
+    1655,
+    1897
+  ],
+  "single_continuous_yield": "PASS",
+  "geometry_check": {
+    "status": "PASS",
+    "radius_bound": 1.2,
+    "measured_radii": {
+      "uav_1": 1.1362601394737915,
+      "uav_2": 1.1362601394737915
+    },
+    "scenery_triangles_inspected": 23432,
+    "near_corridor_triangle_boxes": 0,
+    "min_body_center_to_scenery_box": null,
+    "corridor_clear_by_broadphase": true,
+    "ground_check": "minimum vertex z = model z + .005; z>=.12, pads top .12; paving top 0",
+    "scope": "fixed geometry; sphere/inter-UAV checked separately; conservative triangle-AABB distance"
+  },
+  "trace_rows": 4388,
+  "min_pair": 3.530266455910784,
+  "min_ball": 4.366646310385122
+}

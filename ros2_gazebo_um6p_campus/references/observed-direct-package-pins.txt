@@ -1,0 +1,13 @@
+build-essential=12.10ubuntu1
+cmake=3.28.3-1build7
+python3-colcon-common-extensions=0.3.0-100
+python3-protobuf=3.21.12-8.2ubuntu0.3
+python3-yaml=6.0.1-2build2
+ros-jazzy-ament-cmake=2.5.6-2noble.20260225.222913
+ros-jazzy-gz-msgs-vendor=0.0.8-1noble.20260905.033532
+ros-jazzy-gz-rendering-vendor=0.0.7-1noble.20260905.065113
+ros-jazzy-gz-sim-vendor=0.0.13-1noble.20260905.073557
+ros-jazzy-gz-transport-vendor=0.0.9-1noble.20260905.065154
+ros-jazzy-ros-base=0.11.0-1noble.20260903.093452
+ros-jazzy-ros-gz=1.0.24-1noble.20260905.090616
+ros-jazzy-ros-gz-bridge=1.0.24-1noble.20260905.070149

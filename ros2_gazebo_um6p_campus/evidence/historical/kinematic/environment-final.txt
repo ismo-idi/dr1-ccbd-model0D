@@ -1,0 +1,26 @@
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+x86_64
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  468G  320G  125G  72% /home/ismo-idi/.codex/.chatgpt-projects/g-p-69f609f91b308191b1ae4b4b6fa1a9a6
+/opt/ros/jazzy/bin/ros2
+/opt/ros/jazzy/opt/gz_tools_vendor/bin/gz
+/usr/bin/colcon
+8.15.0
+/opt/ros/jazzy
+rclpy: available
+python3-colcon-common-extensions	0.3.0-100
+ros-jazzy-gz-sim-vendor	0.0.13-1noble.20260905.073557
+ros-jazzy-ros-gz	1.0.24-1noble.20260905.090616
+ros-jazzy-ros-gz-bridge	1.0.24-1noble.20260905.070149

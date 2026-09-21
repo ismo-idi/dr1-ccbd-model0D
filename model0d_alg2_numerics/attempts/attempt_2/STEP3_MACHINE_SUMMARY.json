@@ -1,0 +1,46 @@
+{
+  "scenario": "baseline_2uav_0obs",
+  "protocol_status": "frozen researcher-approved protocol",
+  "step3_result": "REPRODUCIBLE_BASELINE_FAILURE",
+  "termination_reason": "LOCAL_ORACLE_ABORT",
+  "primary_cause": "FIRST_BLOCK_ORACLE_FAILED",
+  "failure_outer_r": 1,
+  "failure_attempted_inner_t": 17,
+  "last_complete_outer_r": 1,
+  "last_complete_inner_t": 16,
+  "baseline_reliable_for_expansion": false,
+  "obstacle_scenario_executed": false,
+  "reproducibility_pass": true,
+  "maximum_final_state_absolute_difference": 0.0,
+  "blocking_metric": {
+    "agent": 1,
+    "name": "R_dual_normalized",
+    "value": 9.56248038286337e-08,
+    "threshold": 1e-08,
+    "threshold_ratio": 9.56248038286337
+  },
+  "last_complete_snapshot": {
+    "R1": 0.37669732341234324,
+    "R2": 1.5328517645723046e-15,
+    "R3": 0.01745669812479472,
+    "R_TCC_eq": 0.3029946622823656,
+    "R_target": 0.21424958036318856,
+    "F": 4.324447512461001,
+    "R_id": 8.268646384127626e-17,
+    "R_rhobeta": 0.0,
+    "workspace_min_margin_m": 1.024844720443907,
+    "speed_min_margin_m": 1.0491674196089207e-10,
+    "uav_min_margin_m": 0.100849953505317
+  },
+  "statuses": {
+    "NUMERICALLY_VALID_last_complete_snapshot": true,
+    "TCC_CONSISTENT": false,
+    "PHYSICAL_POSTCHECK_NUMERIC_PASS": true,
+    "MODEL0D_SAFETY_CERTIFIED": false,
+    "SUNSUN_ALGORITHMICALLY_CERTIFIED": false,
+    "U3": "CONDITIONAL",
+    "U4": "UNSELECTED"
+  },
+  "schedule_record": "Researcher explicitly authorized overriding the Saturday 17:00 cutoff and requested the delay be recorded as a researcher procrastination issue, not a DAILY WORKER mistake.",
+  "step3_commit_status": "NOT_COMMITTED_PENDING_SEPARATE_RESEARCHER_AUTHORIZATION"
+}

@@ -1,0 +1,18 @@
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+{
+  "scenario_id": "baseline_2uav_0obs",
+  "termination_reason": "LOCAL_ORACLE_ABORT",
+  "primary_cause": "FIRST_BLOCK_ORACLE_FAILED",
+  "all_causes": [
+    "FIRST_BLOCK_ORACLE_FAILED",
+    "TCC_NOT_ACCEPTED"
+  ],
+  "elapsed_s": 3.4564274460000206,
+  "output": "/mnt/data/model0d_alg2_numerics_step3_work/runs/baseline_run2"
+}

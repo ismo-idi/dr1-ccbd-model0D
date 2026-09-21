@@ -1,0 +1,1182 @@
+Only in /mnt/data/model0d_alg2_numerics_work: MODEL0D_NUMERICAL_PROTOCOL_AND_READINESS_V1_0_11_SEP_2026.md
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/README_LOCAL_IMPLEMENTATION_STATUS.md /mnt/data/model0d_alg2_numerics_work/README_LOCAL_IMPLEMENTATION_STATUS.md
+--- /mnt/data/model0d_step1_baseline_extract/README_LOCAL_IMPLEMENTATION_STATUS.md	2026-09-11 14:20:03.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/README_LOCAL_IMPLEMENTATION_STATUS.md	2026-09-11 14:44:22.717422878 +0000
+@@ -1,25 +1,37 @@
+-# Model 0-D Algorithm-2 numerics — local Step-1 implementation state
++# Model 0-D Algorithm-2 numerics — local Step-2 verification state
+ 
+ **Date:** 11 September 2026  
+ **Status:** LOCAL / UNCOMMITTED / UNAUDITED IMPLEMENTATION WORK  
+ **Repository traceability baseline:** `de49211ddd924e4751b7303ec3f1f2949b16bb23`  
+ **Protocol:** researcher-approved `MODEL0D_NUMERICAL_PROTOCOL_AND_READINESS_V1_0_11_SEP_2026.md`
+ 
+-This local directory implements the smallest approved 2-UAV TCC/Sun--Sun
+-Algorithm-2 path. It has not been committed. Per researcher instruction, any
+-future commit requires a fresh explicit permission request.
+-
+-Step 1 implements source/configuration, exact geometry, frozen N=2 TCC
+-operators, local CasADi/IPOPT first-block NLPs, finite diagnostics, Algorithm-2
+-updates, common failure/finalization handling, and reproducible logging.
+-
+-No baseline experimental outcome is executed or inspected in Step 1. The next
+-mandatory stage is the approved pre-baseline component-verification suite. Only
+-if that stage passes may the first baseline run be interpreted.
++This local directory contains the smallest approved 2-UAV TCC / Sun--Sun
++Algorithm-2 implementation together with the completed pre-baseline component
++verification package.
++
++Step 2 has passed locally. The complete component suite currently contains 53
++tests and checks structure, dimensions, exact TCC split, exact segment geometry,
++backend multiplier sign/order, stationary-lift feasibility, local derivative
++consistency, Algorithm-2 algebraic updates, residual reductions, empty-family
++semantics, physical source-trajectory postchecks, protocol/configuration locks,
++deterministic execution guards, failure precedence, all major finalization exit
++classes, non-finite logging, and the hover-initialized local first-block backend
++interface.
++
++No complete Model-0D Algorithm-2 baseline run has been executed or inspected in
++this Step-2 package. The `runs/` directory is intentionally empty. One first-block
++solve per UAV at the accepted hover initialization was executed strictly as the
++protocol-required backend/component check; it was not interpreted as a baseline
++experiment result.
++
++Nothing in this Step-2 state has been committed. Per researcher instruction, any
++future GitHub commit requires a fresh explicit permission request.
+ 
+ Scientific claim boundary remains:
+ 
+ - finite oracle diagnostics do not establish exact Sun--Sun source-oracle compliance;
+ - U3 remains conditional;
+ - U4 remains unselected;
+-- ordinary floating-point physical margins cannot establish `MODEL0D_SAFETY_CERTIFIED`.
++- ordinary floating-point physical margins cannot establish `MODEL0D_SAFETY_CERTIFIED`;
++- passing Step 2 establishes implementation readiness for the first bounded baseline
++  experiment, not numerical validation of Model 0-D or the Sun--Sun convergence theory.
+Only in /mnt/data/model0d_alg2_numerics_work: STEP2_COMPONENT_VERIFICATION_CHECKPOINT.md
+Only in /mnt/data/model0d_alg2_numerics_work: pytest.ini
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/run_experiment.py /mnt/data/model0d_alg2_numerics_work/run_experiment.py
+--- /mnt/data/model0d_step1_baseline_extract/run_experiment.py	2026-09-11 14:20:03.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/run_experiment.py	2026-09-11 14:36:39.903370143 +0000
+@@ -14,7 +14,7 @@
+ import numpy as np
+ 
+ from src.config import load_config
+-from src.io_utils import environment_record, sha256_file, write_json, write_jsonl
++from src.io_utils import environment_record, sha256_file, validate_execution_environment, write_json, write_jsonl
+ from src.sunsun_algorithm2 import run_algorithm2
+ 
+ 
+@@ -26,12 +26,20 @@
+ 
+     cfg_path = Path(args.config).resolve()
+     out = Path(args.output).resolve()
+-    out.mkdir(parents=True, exist_ok=False)
+ 
++    # Validate the frozen protocol and deterministic process environment before
++    # creating any experimental output directory.
+     cfg = load_config(cfg_path)
++    validate_execution_environment()
++    out.mkdir(parents=True, exist_ok=False)
+     write_json(out / "config.json", cfg.raw)
+     env = environment_record()
+     env["config_sha256"] = sha256_file(cfg_path)
++    package_root = Path(__file__).resolve().parent
++    implementation_files = [package_root / "run_experiment.py"] + sorted((package_root / "src").glob("*.py"))
++    env["implementation_files_sha256"] = {
++        str(path.relative_to(package_root)): sha256_file(path) for path in implementation_files
++    }
+     write_json(out / "environment.json", env)
+ 
+     result = run_algorithm2(cfg)
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/src/config.py /mnt/data/model0d_alg2_numerics_work/src/config.py
+--- /mnt/data/model0d_step1_baseline_extract/src/config.py	2026-09-11 14:16:30.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/src/config.py	2026-09-11 14:29:41.077437819 +0000
+@@ -113,6 +113,119 @@
+         return float(obstacle["radius"] + self.radii[i] + self.delta_obs[i])
+ 
+ 
++# Researcher-approved protocol v1.0, 11 September 2026.
++# These are experiment-wrapper constants, deliberately locked before outcome inspection.
++_FROZEN_COMMON: dict[str, Any] = {
++    "schema_version": "1.0",
++    "repository_branch": "Model-0_24-Aug-2026",
++    "implementation_base_commit": "de49211ddd924e4751b7303ec3f1f2949b16bb23",
++    "protocol_file": "MODEL0D_NUMERICAL_PROTOCOL_AND_READINESS_V1_0_11_SEP_2026.md",
++    "seed": 20260911,
++    "model": {
++        "N": 2,
++        "q": 2,
++        "K": 8,
++        "dt": 0.5,
++        "workspace_lower": [-3.0, -3.0],
++        "workspace_upper": [3.0, 3.0],
++        "a1_lower": [-3.5, -3.5],
++        "a1_upper": [3.5, 3.5],
++        "starts": [[-2.0, 0.0], [0.0, -2.0]],
++        "goals": [[2.0, 0.0], [0.0, 2.0]],
++        "radii": [0.1, 0.1],
++        "vmax": [1.5, 1.5],
++        "alpha": [20.0, 20.0],
++        "beta_obj": [1.0, 1.0],
++        "delta_uav": 0.2,
++        "delta_obs": [0.1, 0.1],
++    },
++    "tcc": {
++        "guardian_pair_1_2": 1,
++        "source_2_copy_holders": [1, 2],
++        "source_2_equality_edge": [1, 2],
++        "reduction_tree_edge": [1, 2],
++    },
++    "algorithm": {
++        "beta0": 1.0,
++        "vartheta": 2.0,
++        "omega": 0.5,
++        "lambda_initial": 0.0,
++        "lambda_lower": -100.0,
++        "lambda_upper": 100.0,
++        "eps1_scale": 0.0001,
++        "eps2_scale": 0.0001,
++        "eps3_scale": 0.000001,
++        "max_outer_iterations": 20,
++        "max_inner_iterations": 100,
++        "wall_clock_cap_s": 600.0,
++        "retry_count": 0,
++    },
++    "backend": {
++        "name": "casadi_ipopt",
++        "ipopt.tol": 1e-9,
++        "ipopt.constr_viol_tol": 1e-9,
++        "ipopt.dual_inf_tol": 1e-8,
++        "ipopt.compl_inf_tol": 1e-8,
++        "ipopt.max_iter": 500,
++        "ipopt.acceptable_iter": 0,
++        "ipopt.hessian_approximation": "limited-memory",
++        "ipopt.bound_relax_factor": 0.0,
++        "ipopt.print_level": 0,
++        "print_time": False,
++    },
++    "thresholds": {
++        "tau_W": 1e-8,
++        "tau_spd": 1e-8,
++        "tau_obs": 1e-8,
++        "tau_uav": 1e-8,
++        "tau_A1": 1e-8,
++        "tau_s": 1e-12,
++        "inactive_factor": 100.0,
++        "near_factor": 10.0,
++        "dual_normalized": 1e-8,
++        "complementarity": 1e-6,
++        "stationarity_normalized": 1e-6,
++        "descent_relative": 1e-10,
++        "integrity_relative": 1e-12,
++        "tcc_eq": 1e-6,
++        "target": 1e-6,
++        "physical_numeric_margin": 1e-7,
++        "outer_xi": 1e-6,
++        "repro_atol": 1e-10,
++        "repro_rtol": 1e-10,
++    },
++}
++
++_FROZEN_OBSTACLES: dict[str, list[dict[str, Any]]] = {
++    "baseline_2uav_0obs": [],
++    "obstacle_2uav_1obs": [{"center": [1.0, 0.0], "radius": 0.35}],
++}
++
++
++def _compare_exact(actual: Any, expected: Any, path: str, errors: list[str]) -> None:
++    """Recursively compare protocol-controlled values without tolerance retuning."""
++    if isinstance(expected, dict):
++        if not isinstance(actual, dict):
++            errors.append(f"{path} must be an object")
++            return
++        for key, exp in expected.items():
++            if key not in actual:
++                errors.append(f"{path}.{key} missing")
++            else:
++                _compare_exact(actual[key], exp, f"{path}.{key}", errors)
++        return
++    if isinstance(expected, list):
++        if not isinstance(actual, list) or len(actual) != len(expected):
++            errors.append(f"{path} must equal {expected!r}")
++            return
++        for idx, (act, exp) in enumerate(zip(actual, expected, strict=True)):
++            _compare_exact(act, exp, f"{path}[{idx}]", errors)
++        return
++    # JSON number equality is intentional here: these values are the frozen protocol literals.
++    if actual != expected:
++        errors.append(f"{path}={actual!r}, expected frozen value {expected!r}")
++
++
+ def load_config(path: str | Path) -> ModelConfig:
+     p = Path(path)
+     raw = json.loads(p.read_text(encoding="utf-8"))
+@@ -122,37 +235,36 @@
+ 
+ 
+ def validate_frozen_2uav_protocol(cfg: ModelConfig) -> None:
+-    """Reject silent drift from the researcher-approved bounded campaign."""
++    """Reject silent drift from every researcher-approved bounded-campaign setting."""
+     errors: list[str] = []
+-    if cfg.N != 2:
+-        errors.append("N must remain 2")
+-    if cfg.q != 2:
+-        errors.append("q must remain 2")
+-    if cfg.K != 8:
+-        errors.append("K must remain 8")
+-    if cfg.dt != 0.5:
+-        errors.append("dt must remain 0.5")
+-    if cfg.raw.get("seed") != 20260911:
+-        errors.append("seed must remain 20260911")
+-    if cfg.raw["tcc"].get("guardian_pair_1_2") != 1:
+-        errors.append("guardian({1,2}) must remain UAV 1")
+-    if cfg.raw["tcc"].get("source_2_copy_holders") != [1, 2]:
+-        errors.append("source-2 copy holders must remain [1,2]")
+-    if cfg.raw["tcc"].get("source_2_equality_edge") != [1, 2]:
+-        errors.append("source-2 equality edge must remain [1,2]")
+-    if cfg.raw["tcc"].get("reduction_tree_edge") != [1, 2]:
+-        errors.append("reduction tree must remain the single edge [1,2]")
+-    if not np.all(cfg.workspace_lower < cfg.workspace_upper):
+-        errors.append("workspace bounds invalid")
+-    if not np.all(cfg.a1_lower < cfg.workspace_lower) or not np.all(cfg.workspace_upper < cfg.a1_upper):
+-        errors.append("A1 box must strictly contain workspace")
+-    if cfg.a["retry_count"] != 0:
+-        errors.append("retry_count must remain 0")
+-    if float(cfg.a["beta0"]) < 0.25:
+-        errors.append("beta0 must be >=1/4")
+-    if float(cfg.a["vartheta"]) <= 1.0:
+-        errors.append("vartheta must be >1")
+-    if not (0.0 <= float(cfg.a["omega"]) < 1.0):
+-        errors.append("omega must lie in [0,1)")
++    raw = cfg.raw
++    scenario_id = raw.get("scenario_id")
++    if scenario_id not in _FROZEN_OBSTACLES:
++        errors.append(f"scenario_id {scenario_id!r} is outside the approved bounded campaign")
++    _compare_exact(raw, {k: v for k, v in _FROZEN_COMMON.items() if k != "model"}, "config", errors)
++
++    if not isinstance(raw.get("model"), dict):
++        errors.append("config.model must be an object")
++    else:
++        expected_model = dict(_FROZEN_COMMON["model"])
++        if scenario_id in _FROZEN_OBSTACLES:
++            expected_model["obstacles"] = _FROZEN_OBSTACLES[scenario_id]
++        _compare_exact(raw["model"], expected_model, "config.model", errors)
++
++    # Redundant semantic checks retained for readable failure diagnosis.
++    if raw.get("model"):
++        if not np.all(cfg.workspace_lower < cfg.workspace_upper):
++            errors.append("workspace bounds invalid")
++        if not np.all(cfg.a1_lower < cfg.workspace_lower) or not np.all(cfg.workspace_upper < cfg.a1_upper):
++            errors.append("A1 box must strictly contain workspace")
++        if float(cfg.a["beta0"]) < 0.25:
++            errors.append("beta0 must be >=1/4")
++        if float(cfg.a["vartheta"]) <= 1.0:
++            errors.append("vartheta must be >1")
++        if not (0.0 <= float(cfg.a["omega"]) < 1.0):
++            errors.append("omega must lie in [0,1)")
++        if not (float(cfg.a["lambda_lower"]) < float(cfg.a["lambda_upper"])):
++            errors.append("lambda safeguard box invalid")
++
+     if errors:
+         raise ConfigurationError("; ".join(errors))
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/src/diagnostics.py /mnt/data/model0d_alg2_numerics_work/src/diagnostics.py
+--- /mnt/data/model0d_step1_baseline_extract/src/diagnostics.py	2026-09-11 14:18:20.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/src/diagnostics.py	2026-09-11 14:41:11.974718608 +0000
+@@ -34,15 +34,22 @@
+     agent: int
+     backend_success: bool
+     backend_status: str
++    backend_iterations: int | None
++    backend_elapsed_s: float
+     finite: bool
++    constraint_value_crosscheck_abs: float
++    constraint_value_crosscheck_limit: float
++    constraint_value_crosscheck_pass: bool
+     feasibility_max_by_family: dict[str, float]
+     feasibility_pass_by_family: dict[str, bool]
+     raw_g: list[float]
+     raw_mu_backend: list[float]
++    multiplier_mapping_available: bool
+     diagnostic_mu: list[float]
+     differentiable_rows: list[int]
+     omitted_rows: list[int]
+     omitted_reasons: dict[str, str]
++    near_active_rows: list[int]
+     nonsmooth_blocking_rows: list[int]
+     R_dual: float
+     R_dual_normalized: float
+@@ -57,6 +64,7 @@
+     pass_desc: bool
+     accepted: bool
+     failure_code: str | None
++    failure_codes: list[str]
+ 
+     def to_dict(self) -> dict[str, Any]:
+         return asdict(self)
+@@ -95,6 +103,62 @@
+     return None
+ 
+ 
++def recompute_local_constraints_numeric(local: LocalNLP, z: np.ndarray) -> np.ndarray:
++    """Independent NumPy recomputation of the canonical local g(z)<=0 rows.
++
++    This mirrors the frozen mathematical families rather than evaluating the
++    CasADi solver graph. Row order is intentionally reconstructed from the
++    approved canonical assembly and cross-checked against LocalNLP metadata.
++    """
++    cfg = local.cfg
++    tr = extract_local_trajectories(local, z)
++    P = tr["source"]
++    source_idx = 0 if local.agent == 1 else 1
++    vals: list[float] = []
++
++    # Workspace rows in exactly the canonical upper/lower order.
++    for k in range(1, cfg.K + 1):
++        pk = P[k]
++        for j in range(cfg.q):
++            vals.append(float(pk[j] - cfg.workspace_upper[j]))
++            vals.append(float(cfg.workspace_lower[j] - pk[j]))
++
++    # Squared speed rows.
++    vmax_step_sq = float(cfg.vmax[source_idx] * cfg.dt) ** 2
++    for k in range(cfg.K):
++        step = P[k + 1] - P[k]
++        vals.append(float(np.dot(step, step) - vmax_step_sq))
++
++    # Exact squared obstacle-segment rows.
++    for obs in cfg.obstacles:
++        clearance = cfg.obstacle_clearance(source_idx, obs)
++        for k in range(cfg.K):
++            g, _ = obstacle_segment_constraint_numeric(P[k], P[k + 1], obs["center"], clearance)
++            vals.append(float(g))
++
++    if local.agent == 1:
++        P2 = tr["copy2"]
++        for k in range(cfg.K):
++            g, _ = uav_segment_constraint_numeric(
++                P[k], P[k + 1], P2[k], P2[k + 1], cfg.uav_clearance,
++            )
++            vals.append(float(g))
++
++        # A1 box on foreign source-2 free samples only.
++        for k in range(1, cfg.K + 1):
++            pk = P2[k]
++            for j in range(cfg.q):
++                vals.append(float(pk[j] - cfg.a1_upper[j]))
++                vals.append(float(cfg.a1_lower[j] - pk[j]))
++
++    arr = np.asarray(vals, dtype=float)
++    if arr.size != local.n_constraints:
++        raise RuntimeError(
++            f"independent local constraint count {arr.size} != assembled {local.n_constraints}"
++        )
++    return arr
++
++
+ def local_oracle_diagnostics(
+     local: LocalNLP,
+     result: LocalSolveResult,
+@@ -107,13 +171,20 @@
+     cfg = local.cfg
+     t = cfg.t
+     z = np.asarray(result.z, float).reshape(-1)
+-    g = local.eval_g(z)
++    g_backend = local.eval_g(z)
++    g = recompute_local_constraints_numeric(local, z)
+     J = local.eval_jac(z)
+     grad_phi = local.eval_grad_phi(z, u_old, xi_old_half, y_old_half, rho)
+     mu_backend = np.asarray(result.mu, float).reshape(-1)
+ 
++    g_cross_abs = float(np.max(np.abs(g_backend - g))) if g.size else 0.0
++    g_cross_scale = max(1.0, float(np.max(np.abs(g_backend))) if g_backend.size else 0.0, float(np.max(np.abs(g))) if g.size else 0.0)
++    g_cross_limit = float(t["integrity_relative"]) * g_cross_scale
++    g_cross_pass = bool(g_cross_abs <= g_cross_limit)
++
++    multiplier_mapping_available = bool(mu_backend.size == g.size == len(local.metas))
+     finite = bool(
+-        np.all(np.isfinite(z)) and np.all(np.isfinite(g)) and
++        np.all(np.isfinite(z)) and np.all(np.isfinite(g_backend)) and np.all(np.isfinite(g)) and
+         np.all(np.isfinite(J)) and np.all(np.isfinite(grad_phi)) and
+         np.all(np.isfinite(mu_backend)) and np.isfinite(result.phi)
+     )
+@@ -128,10 +199,39 @@
+         feasibility_max_by_family[fam] = vmax
+         feasibility_pass_by_family[fam] = bool(vmax <= float(t[FAMILY_TAU_KEY[fam]]))
+ 
++    # A missing or mis-sized multiplier vector is an unavailable diagnostic,
++    # not permission to invent multipliers or silently reorder rows.
++    if not multiplier_mapping_available:
++        phi_old = local.eval_phi(z_old, u_old, xi_old_half, y_old_half, rho)
++        phi_new = local.eval_phi(z, u_old, xi_old_half, y_old_half, rho)
++        R_desc = max(0.0, float(phi_new - phi_old))
++        descent_limit = float(t["descent_relative"]) * max(1.0, abs(phi_old), abs(phi_new))
++        failure_codes = []
++        if not finite:
++            failure_codes.append("NUMERICAL_NAN_INF")
++        if not result.backend_success:
++            failure_codes.append("SOLVER_BACKEND_FAILURE")
++        if not g_cross_pass:
++            failure_codes.append("ALGEBRAIC_INTEGRITY_FAILED")
++        failure_codes.append("MULTIPLIER_DIAGNOSTIC_UNAVAILABLE")
++        return LocalOracleDiagnostics(
++            agent=local.agent, backend_success=result.backend_success, backend_status=result.backend_status,
++            backend_iterations=result.backend_iterations, backend_elapsed_s=result.backend_elapsed_s, finite=finite, constraint_value_crosscheck_abs=g_cross_abs, constraint_value_crosscheck_limit=g_cross_limit, constraint_value_crosscheck_pass=g_cross_pass, feasibility_max_by_family=feasibility_max_by_family,
++            feasibility_pass_by_family=feasibility_pass_by_family, raw_g=g.tolist(),
++            raw_mu_backend=mu_backend.tolist(), multiplier_mapping_available=False,
++            diagnostic_mu=[], differentiable_rows=[], omitted_rows=[], omitted_reasons={},
++            near_active_rows=[], nonsmooth_blocking_rows=[], R_dual=float("inf"),
++            R_dual_normalized=float("inf"), R_comp=float("inf"), R_stat=float("inf"),
++            R_stat_normalized=float("inf"), R_desc=R_desc, descent_limit=descent_limit,
++            pass_dual=False, pass_comp=False, pass_stat=False, pass_desc=bool(R_desc <= descent_limit),
++            accepted=False, failure_code=failure_codes[0], failure_codes=failure_codes,
++        )
++
+     mu_diag = mu_backend.copy()
+     diff_rows: list[int] = []
+     omitted_rows: list[int] = []
+     omitted_reasons: dict[str, str] = {}
++    near_active_rows: list[int] = []
+     blocking: list[int] = []
+ 
+     for meta in local.metas:
+@@ -141,10 +241,13 @@
+             continue
+         s = _segment_s_for_meta(local, z, row)
+         assert s is not None
++        family_tau = float(t[FAMILY_TAU_KEY[meta.family]])
++        near_buffer = float(t["near_factor"]) * family_tau
++        if g[row] >= -near_buffer:
++            near_active_rows.append(row)
+         if s > float(t["tau_s"]):
+             diff_rows.append(row)
+             continue
+-        family_tau = float(t[FAMILY_TAU_KEY[meta.family]])
+         inactive_buffer = float(t["inactive_factor"]) * family_tau
+         if g[row] < -inactive_buffer:
+             omitted_rows.append(row)
+@@ -184,30 +287,40 @@
+     pass_desc = bool(R_desc <= descent_limit)
+     pass_feas = bool(all(feasibility_pass_by_family.values()))
+ 
+-    failure_code = None
++    failure_codes: list[str] = []
++    # Preserve simultaneous causes in protocol priority order for the local phase.
++    if not finite:
++        failure_codes.append("NUMERICAL_NAN_INF")
+     if not result.backend_success:
+-        failure_code = "SOLVER_BACKEND_FAILURE"
+-    elif not finite:
+-        failure_code = "NUMERICAL_NAN_INF"
+-    elif blocking:
+-        failure_code = "ORACLE_UNCERTIFIED_NONSMOOTH"
+-    elif not (pass_feas and pass_dual and pass_comp and pass_stat and pass_desc):
+-        failure_code = "FIRST_BLOCK_ORACLE_FAILED"
+-
+-    accepted = failure_code is None
++        failure_codes.append("SOLVER_BACKEND_FAILURE")
++    if not g_cross_pass:
++        failure_codes.append("ALGEBRAIC_INTEGRITY_FAILED")
++    if blocking:
++        failure_codes.append("ORACLE_UNCERTIFIED_NONSMOOTH")
++    if not (pass_feas and pass_dual and pass_comp and pass_stat and pass_desc):
++        failure_codes.append("FIRST_BLOCK_ORACLE_FAILED")
++    failure_code = failure_codes[0] if failure_codes else None
++    accepted = not failure_codes
+     return LocalOracleDiagnostics(
+         agent=local.agent,
+         backend_success=result.backend_success,
+         backend_status=result.backend_status,
++        backend_iterations=result.backend_iterations,
++        backend_elapsed_s=result.backend_elapsed_s,
+         finite=finite,
++        constraint_value_crosscheck_abs=g_cross_abs,
++        constraint_value_crosscheck_limit=g_cross_limit,
++        constraint_value_crosscheck_pass=g_cross_pass,
+         feasibility_max_by_family=feasibility_max_by_family,
+         feasibility_pass_by_family=feasibility_pass_by_family,
+         raw_g=g.tolist(),
+         raw_mu_backend=mu_backend.tolist(),
++        multiplier_mapping_available=multiplier_mapping_available,
+         diagnostic_mu=mu_diag.tolist(),
+         differentiable_rows=diff_rows,
+         omitted_rows=omitted_rows,
+         omitted_reasons=omitted_reasons,
++        near_active_rows=near_active_rows,
+         nonsmooth_blocking_rows=blocking,
+         R_dual=R_dual,
+         R_dual_normalized=R_dual_norm,
+@@ -222,6 +335,7 @@
+         pass_desc=pass_desc,
+         accepted=accepted,
+         failure_code=failure_code,
++        failure_codes=failure_codes,
+     )
+ 
+ 
+@@ -302,10 +416,12 @@
+     out: dict[str, Any] = {"expected_cardinality": expected, "families": {}}
+     tau = float(cfg.t["physical_numeric_margin"])
+     all_pass = True
++    evaluation_complete = True
+     for name, vals in fam.items():
+         if len(vals) != expected[name]:
+-            out["families"][name] = {"status": "EVALUATION_COUNT_MISMATCH", "actual": len(vals)}
++            out["families"][name] = {"status": "EVALUATION_COUNT_MISMATCH", "actual": len(vals), "expected": expected[name]}
+             all_pass = False
++            evaluation_complete = False
+             continue
+         if not vals:
+             out["families"][name] = {
+@@ -319,13 +435,16 @@
+         min_margin = float(np.min(arr)) if finite else float("nan")
+         violation = float(np.max(np.maximum(-arr, 0.0))) if finite else float("nan")
+         passed = bool(finite and min_margin >= -tau)
++        if not finite:
++            evaluation_complete = False
+         all_pass = all_pass and passed
+         out["families"][name] = {
+             "aggregate_violation": violation,
+             "minimum_margin": min_margin,
+             "numeric_pass": passed,
+         }
+-    out["PHYSICAL_POSTCHECK_NUMERIC_PASS"] = bool(all_pass)
++    out["evaluation_complete"] = bool(evaluation_complete)
++    out["PHYSICAL_POSTCHECK_NUMERIC_PASS"] = bool(all_pass and evaluation_complete)
+     out["MODEL0D_SAFETY_CERTIFIED"] = False
+     out["certification_note"] = "U4 unresolved; ordinary floating-point margins are diagnostic only."
+     return out
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/src/io_utils.py /mnt/data/model0d_alg2_numerics_work/src/io_utils.py
+--- /mnt/data/model0d_step1_baseline_extract/src/io_utils.py	2026-09-11 14:20:03.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/src/io_utils.py	2026-09-11 14:33:38.984158018 +0000
+@@ -15,6 +15,25 @@
+ import scipy
+ 
+ 
++APPROVED_EXECUTION_ENV = {
++    "PYTHONHASHSEED": "0",
++    "OMP_NUM_THREADS": "1",
++    "OPENBLAS_NUM_THREADS": "1",
++    "MKL_NUM_THREADS": "1",
++}
++
++
++def validate_execution_environment() -> None:
++    """Fail before an experiment if deterministic execution variables drift."""
++    mismatches = []
++    for key, expected in APPROVED_EXECUTION_ENV.items():
++        actual = os.environ.get(key)
++        if actual != expected:
++            mismatches.append(f"{key}={actual!r}, expected {expected!r}")
++    if mismatches:
++        raise RuntimeError("Approved deterministic execution environment not active: " + "; ".join(mismatches))
++
++
+ def sha256_file(path: str | Path) -> str:
+     h = hashlib.sha256()
+     with open(path, "rb") as f:
+@@ -38,10 +57,35 @@
+     }
+ 
+ 
++def _json_safe(value: Any) -> Any:
++    """Convert non-finite numerical diagnostics to explicit categorical markers.
++
++    Experiment logs must never contain JSON NaN/Infinity tokens. Those tokens are
++    non-portable and, more importantly, would blur the distinction between an
++    unavailable/failed numerical quantity and a genuine finite scalar.
++    """
++    if isinstance(value, dict):
++        return {str(k): _json_safe(v) for k, v in value.items()}
++    if isinstance(value, (list, tuple)):
++        return [_json_safe(v) for v in value]
++    if isinstance(value, numpy.ndarray):
++        return _json_safe(value.tolist())
++    if isinstance(value, numpy.generic):
++        return _json_safe(value.item())
++    if isinstance(value, float):
++        if numpy.isnan(value):
++            return "NONFINITE_NAN"
++        if numpy.isposinf(value):
++            return "NONFINITE_POSITIVE_INFINITY"
++        if numpy.isneginf(value):
++            return "NONFINITE_NEGATIVE_INFINITY"
++    return value
++
++
+ def write_json(path: str | Path, data: Any) -> None:
+     p = Path(path)
+     p.parent.mkdir(parents=True, exist_ok=True)
+-    p.write_text(json.dumps(data, indent=2, sort_keys=True, allow_nan=False), encoding="utf-8")
++    p.write_text(json.dumps(_json_safe(data), indent=2, sort_keys=True, allow_nan=False), encoding="utf-8")
+ 
+ 
+ def write_jsonl(path: str | Path, records: list[dict[str, Any]]) -> None:
+@@ -49,4 +93,4 @@
+     p.parent.mkdir(parents=True, exist_ok=True)
+     with p.open("w", encoding="utf-8") as f:
+         for record in records:
+-            f.write(json.dumps(record, sort_keys=True, allow_nan=False) + "\n")
++            f.write(json.dumps(_json_safe(record), sort_keys=True, allow_nan=False) + "\n")
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/src/local_nlp.py /mnt/data/model0d_alg2_numerics_work/src/local_nlp.py
+--- /mnt/data/model0d_step1_baseline_extract/src/local_nlp.py	2026-09-11 14:17:32.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/src/local_nlp.py	2026-09-11 14:36:18.531413862 +0000
+@@ -8,6 +8,7 @@
+ 
+ from dataclasses import dataclass
+ from typing import Any
++import time
+ 
+ import casadi as ca
+ import numpy as np
+@@ -35,6 +36,7 @@
+     backend_success: bool
+     backend_status: str
+     backend_iterations: int | None
++    backend_elapsed_s: float
+     raw_stats: dict[str, Any]
+ 
+ 
+@@ -75,8 +77,10 @@
+             "lbg": np.full(self.n_constraints, -np.inf),
+             "ubg": np.zeros(self.n_constraints),
+         }
++        tic = time.monotonic()
+         try:
+             sol = self.solver(**args)
++            elapsed = time.monotonic() - tic
+             stats = dict(self.solver.stats())
+             z = np.asarray(sol["x"], float).reshape(-1)
+             mu = np.asarray(sol["lam_g"], float).reshape(-1)
+@@ -89,9 +93,11 @@
+                 backend_success=bool(stats.get("success", False)),
+                 backend_status=str(stats.get("return_status", "UNKNOWN")),
+                 backend_iterations=int(stats["iter_count"]) if "iter_count" in stats else None,
++                backend_elapsed_s=float(elapsed),
+                 raw_stats=stats,
+             )
+         except Exception as exc:  # final classification is handled by the harness
++            elapsed = time.monotonic() - tic
+             return LocalSolveResult(
+                 agent=self.agent,
+                 z=np.asarray(z0, float).reshape(-1).copy(),
+@@ -100,6 +106,7 @@
+                 backend_success=False,
+                 backend_status=f"EXCEPTION:{type(exc).__name__}:{exc}",
+                 backend_iterations=None,
++                backend_elapsed_s=float(elapsed),
+                 raw_stats={"exception": repr(exc)},
+             )
+ 
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/src/sunsun_algorithm2.py /mnt/data/model0d_alg2_numerics_work/src/sunsun_algorithm2.py
+--- /mnt/data/model0d_step1_baseline_extract/src/sunsun_algorithm2.py	2026-09-11 14:19:39.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/src/sunsun_algorithm2.py	2026-09-11 14:37:18.416639687 +0000
+@@ -102,14 +102,28 @@
+     f1 = local1.eval_source_objective(z1)
+     f2 = local2.eval_source_objective(z2)
+     cfg = local1.cfg
+-    p1K = np.asarray(z1[: cfg.Q], float).reshape(cfg.K, cfg.q)[-1]
+-    p2K = np.asarray(z2[: cfg.Q], float).reshape(cfg.K, cfg.q)[-1]
++    free1 = np.asarray(z1[: cfg.Q], float).reshape(cfg.K, cfg.q)
++    free2 = np.asarray(z2[: cfg.Q], float).reshape(cfg.K, cfg.q)
++    P1 = np.vstack([cfg.starts[0], free1])
++    P2 = np.vstack([cfg.starts[1], free2])
++    p1K = P1[-1]
++    p2K = P2[-1]
++    step_sq_1 = float(np.sum(np.sum(np.diff(P1, axis=0) ** 2, axis=1)))
++    step_sq_2 = float(np.sum(np.sum(np.diff(P2, axis=0) ** 2, axis=1)))
++    goal_sq_1 = float(np.dot(p1K - cfg.goals[0], p1K - cfg.goals[0]))
++    goal_sq_2 = float(np.dot(p2K - cfg.goals[1], p2K - cfg.goals[1]))
+     return {
+         "f1": float(f1),
+         "f2": float(f2),
+         "F": float(f1 + f2),
+-        "goal_error_1": float(np.linalg.norm(p1K - cfg.goals[0])),
+-        "goal_error_2": float(np.linalg.norm(p2K - cfg.goals[1])),
++        "goal_error_1": float(np.sqrt(goal_sq_1)),
++        "goal_error_2": float(np.sqrt(goal_sq_2)),
++        "terminal_tracking_term_1": float(cfg.alpha[0] * goal_sq_1),
++        "terminal_tracking_term_2": float(cfg.alpha[1] * goal_sq_2),
++        "squared_step_sum_1": step_sq_1,
++        "squared_step_sum_2": step_sq_2,
++        "step_regularization_term_1": float(cfg.beta_obj[0] * step_sq_1),
++        "step_regularization_term_2": float(cfg.beta_obj[1] * step_sq_2),
+     }
+ 
+ 
+@@ -141,6 +155,49 @@
+     }
+ 
+ 
++def _a5_edge_update(cfg: ModelConfig, rho: float, s1, s2, xi1_old, xi2_old, y1_old, y2_old) -> np.ndarray:
++    """Exact A5 symmetric average-and-project update for the unique N=2 edge."""
++    psi1 = np.asarray(s1, float).reshape(-1) + np.asarray(xi1_old, float).reshape(-1) + np.asarray(y1_old, float).reshape(-1) / float(rho)
++    psi2 = np.asarray(s2, float).reshape(-1) + np.asarray(xi2_old, float).reshape(-1) + np.asarray(y2_old, float).reshape(-1) / float(rho)
++    return project_a1(cfg, 0.5 * (psi1 + psi2))
++
++
++def _slack_dual_update(lambda_r, beta_r: float, rho: float, y_old, c) -> tuple[np.ndarray, np.ndarray]:
++    """Exact Decision-15 (S11)-(S12) update in real-arithmetic form."""
++    lam = np.asarray(lambda_r, float).reshape(-1)
++    y0 = np.asarray(y_old, float).reshape(-1)
++    c = np.asarray(c, float).reshape(-1)
++    xi_new = -(lam + y0 + float(rho) * c) / (float(beta_r) + float(rho))
++    y_new = y0 + float(rho) * (c + xi_new)
++    return xi_new, y_new
++
++
++def _outer_parameter_update(cfg: ModelConfig, lambda_r, beta_r: float, xi_r, xi_prev_outer) -> tuple[np.ndarray, float, float]:
++    """Exact safeguarded lambda and adaptive beta update for the experiment wrapper."""
++    lam = np.asarray(lambda_r, float).reshape(-1)
++    xi = np.asarray(xi_r, float).reshape(-1)
++    xi_prev = np.asarray(xi_prev_outer, float).reshape(-1)
++    lam_next = np.clip(lam + float(beta_r) * xi, float(cfg.a["lambda_lower"]), float(cfg.a["lambda_upper"]))
++    beta_next = float(beta_r) if np.linalg.norm(xi) <= float(cfg.a["omega"]) * np.linalg.norm(xi_prev) else float(cfg.a["vartheta"]) * float(beta_r)
++    rho_next = 2.0 * beta_next
++    return lam_next, beta_next, rho_next
++
++
++def _residual_crosscheck_pass(cfg: ModelConfig, residual: dict[str, float]) -> tuple[bool, dict[str, float]]:
++    """Check P2P residual reductions against independently assembled matrix forms."""
++    rel = float(cfg.t["integrity_relative"])
++    lim1 = rel * max(1.0, abs(residual["R1"]), abs(residual["R1_matrix"]))
++    lim2 = rel * max(1.0, abs(residual["R2"]), abs(residual["R2_matrix"]))
++    details = {
++        "R1_crosscheck_limit": lim1,
++        "R2_crosscheck_limit": lim2,
++        "R1_crosscheck_abs": residual["R1_crosscheck_abs"],
++        "R2_crosscheck_abs": residual["R2_crosscheck_abs"],
++    }
++    ok = residual["R1_crosscheck_abs"] <= lim1 and residual["R2_crosscheck_abs"] <= lim2
++    return bool(ok), details
++
++
+ def _outer_stop_predicate(cfg: ModelConfig, xi, tcc: dict[str, float], physical: dict[str, Any], integrity_ok: bool, last_oracles: list[LocalOracleDiagnostics]) -> bool:
+     return bool(
+         np.linalg.norm(xi) <= float(cfg.t["outer_xi"])
+@@ -184,12 +241,20 @@
+         tcc_pass = vals["tcc"]["R_TCC_eq"] <= float(cfg.t["tcc_eq"]) and vals["tcc"]["R_target"] <= float(cfg.t["target"])
+         if not tcc_pass:
+             causes.append("TCC_NOT_ACCEPTED")
++    physical_complete = False
+     if "physical" in vals:
++        physical_complete = bool(vals["physical"].get("evaluation_complete", False))
+         phys_pass = bool(vals["physical"].get("PHYSICAL_POSTCHECK_NUMERIC_PASS", False))
+-        if not phys_pass:
++        if not physical_complete:
++            causes.append("POSTCHECK_EVALUATION_FAILED")
++        elif not phys_pass:
+             causes.append("PHYSICAL_VIOLATION_DETECTED")
+ 
+-    numeric_valid = bool(finite_state and integ_ok and "postcheck_exception" not in vals)
++    tcc_finite = bool("tcc" in vals and all(np.isfinite(v) for v in vals["tcc"].values()))
++    numeric_valid = bool(
++        finite_state and integ_ok and tcc_finite and physical_complete
++        and "postcheck_exception" not in vals
++    )
+     statuses: dict[str, bool | str] = {
+         "NUMERICALLY_VALID": numeric_valid,
+         "TCC_CONSISTENT": tcc_pass,
+@@ -208,25 +273,84 @@
+ def run_algorithm2(cfg: ModelConfig, event_callback: Callable[[dict[str, Any]], None] | None = None) -> RunResult:
+     """Execute the finite approved experiment wrapper.
+ 
+-    The caller controls when this is actually invoked. Step-1 implementation can
+-    build/import this function without inspecting any experimental outcome.
++    The caller controls when this is actually invoked. Component verification may
++    build and test pieces of this function without inspecting a complete baseline
++    outcome. Every runtime exit is routed through one common finalization helper.
+     """
+     start_time = time.monotonic()
+     history: list[dict[str, Any]] = []
+-    ops = assemble_tcc(cfg)
+-    local1 = build_local_nlp(1, cfg, ops)
+-    local2 = build_local_nlp(2, cfg, ops)
+ 
+     def emit(event: dict[str, Any]):
+         history.append(event)
+         if event_callback is not None:
+             event_callback(event)
+ 
++    # Assembly/backend construction failures must be explicit rather than escaping
++    # the reproducible failure contract as an uncaught exception.
++    try:
++        ops = assemble_tcc(cfg)
++        local1 = build_local_nlp(1, cfg, ops)
++        local2 = build_local_nlp(2, cfg, ops)
++    except Exception as exc:
++        causes = ["SOLVER_BACKEND_FAILURE"]
++        emit({
++            "phase": "finalization",
++            "termination_reason": "SOLVER_BACKEND_FAILURE",
++            "primary_cause": "SOLVER_BACKEND_FAILURE",
++            "all_causes": causes,
++            "exception": repr(exc),
++            "last_complete_snapshot": None,
++        })
++        return RunResult(
++            cfg.raw.get("scenario_id", "UNKNOWN"),
++            "SOLVER_BACKEND_FAILURE",
++            "SOLVER_BACKEND_FAILURE",
++            causes,
++            None,
++            history,
++            {},
++            {
++                "NUMERICALLY_VALID": False,
++                "TCC_CONSISTENT": False,
++                "PHYSICAL_POSTCHECK_NUMERIC_PASS": False,
++                "MODEL0D_SAFETY_CERTIFIED": False,
++                "SUNSUN_ALGORITHMICALLY_CERTIFIED": False,
++            },
++            time.monotonic() - start_time,
++        )
++
++    def finish(
++        termination_reason: str,
++        causes: list[str],
++        state: RunState | None,
++        last_oracles: list[LocalOracleDiagnostics] | None = None,
++        extra: dict[str, Any] | None = None,
++    ) -> RunResult:
++        metrics, statuses, post_causes = _final_metrics(cfg, ops, local1, local2, state, last_oracles)
++        all_causes = list(dict.fromkeys([c for c in causes + post_causes if c]))
++        primary = _primary(all_causes)
++        event: dict[str, Any] = {
++            "phase": "finalization",
++            "termination_reason": termination_reason,
++            "primary_cause": primary,
++            "all_causes": all_causes,
++            "last_complete_snapshot": None if state is None else {
++                "outer_r": state.outer_r,
++                "inner_t": state.inner_t,
++            },
++            "statuses": statuses,
++        }
++        if extra:
++            event.update(extra)
++        emit(event)
++        return RunResult(
++            cfg.raw["scenario_id"], termination_reason, primary, all_causes,
++            state, history, metrics, statuses, time.monotonic() - start_time,
++        )
++
+     admissible, causes = _initial_admissibility(cfg)
+     if not admissible:
+-        metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, None)
+-        causes += more
+-        return RunResult(cfg.raw["scenario_id"], "INPUT_ADMISSIBILITY_FAILED", _primary(causes), list(dict.fromkeys(causes)), None, history, metrics, statuses, time.monotonic() - start_time)
++        return finish("INPUT_ADMISSIBILITY_FAILED", causes, None)
+ 
+     z1, z2, u = stationary_exact_tcc_initialization(cfg, ops)
+     xi_outer_prev = np.zeros(ops.m)  # xi^0
+@@ -235,18 +359,19 @@
+     lam = np.full(ops.m, float(cfg.a["lambda_initial"]))
+     xi = np.zeros(ops.m)
+     y = -lam - beta * xi
+-    last_complete_state = RunState(z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(), beta, rho, 0, 0)
++    last_complete_state = RunState(
++        z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(),
++        beta, rho, 0, 0,
++    )
+     consecutive_outer_passes = 0
+     last_oracles: list[LocalOracleDiagnostics] = []
+ 
+     for r in range(1, int(cfg.a["max_outer_iterations"]) + 1):
+         if time.monotonic() - start_time > float(cfg.a["wall_clock_cap_s"]):
+-            causes = ["TIMEOUT"]
+-            metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-            causes += more
+-            return RunResult(cfg.raw["scenario_id"], "TIMEOUT", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++            return finish("TIMEOUT", ["TIMEOUT"], last_complete_state, last_oracles)
+ 
+-        # Warm start from last complete outer primal/slack output; reset y exactly.
++        # Warm start from the previous complete outer primal/slack output; reset y
++        # exactly to the Algorithm-1 initialization identity.
+         if r == 1:
+             z1_r0, z2_r0, u_r0 = z1.copy(), z2.copy(), u.copy()
+             xi_r0 = np.zeros(ops.m)
+@@ -257,36 +382,41 @@
+         z1, z2, u, xi, y = z1_r0, z2_r0, u_r0, xi_r0, y_r0
+         rho = 2.0 * beta
+         init_ok, init_integ = integrity_pass(cfg, lam, beta, xi, y, rho)
+-        if not init_ok or not all(np.all(np.isfinite(v)) for v in (z1, z2, u, xi, y, lam)):
+-            causes = ["ALGEBRAIC_INTEGRITY_FAILED"] if init_ok is False else ["NUMERICAL_NAN_INF"]
+-            metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-            causes += more
+-            return RunResult(cfg.raw["scenario_id"], "INITIALIZATION_FAILED", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++        init_finite = all(np.all(np.isfinite(v)) for v in (z1, z2, u, xi, y, lam))
++        if not init_ok or not init_finite:
++            init_causes: list[str] = []
++            if not init_finite:
++                init_causes.append("NUMERICAL_NAN_INF")
++            if not init_ok:
++                init_causes.append("ALGEBRAIC_INTEGRITY_FAILED")
++            return finish(
++                "INITIALIZATION_FAILED", init_causes, last_complete_state, last_oracles,
++                {"initialization_integrity": init_integ},
++            )
+ 
+         inner_completed = False
+         for t in range(1, int(cfg.a["max_inner_iterations"]) + 1):
+             if time.monotonic() - start_time > float(cfg.a["wall_clock_cap_s"]):
+-                causes = ["TIMEOUT"]
+-                metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-                causes += more
+-                return RunResult(cfg.raw["scenario_id"], "TIMEOUT", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++                return finish("TIMEOUT", ["TIMEOUT"], last_complete_state, last_oracles)
+ 
+             Q = ops.Q
+             xi1_old, xi2_old = xi[:Q].copy(), xi[Q:].copy()
+             y1_old, y2_old = y[:Q].copy(), y[Q:].copy()
+             z1_old, z2_old, u_old, xi_old = z1.copy(), z2.copy(), u.copy(), xi.copy()
+ 
++            # UAV-local first block, followed by a logical all-agent acceptance barrier.
+             res1 = local1.solve(z1_old, u_old, xi1_old, y1_old, rho)
+             res2 = local2.solve(z2_old, u_old, xi2_old, y2_old, rho)
+             d1 = local_oracle_diagnostics(local1, res1, z1_old, u_old, xi1_old, y1_old, rho)
+             d2 = local_oracle_diagnostics(local2, res2, z2_old, u_old, xi2_old, y2_old, rho)
+             last_oracles = [d1, d2]
+             if not (d1.accepted and d2.accepted):
+-                causes = [d.failure_code for d in last_oracles if d.failure_code]
+-                metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-                causes += more
+-                emit({"phase": "local_oracle_abort", "r": r, "t": t, "oracles": [d.to_dict() for d in last_oracles]})
+-                return RunResult(cfg.raw["scenario_id"], "LOCAL_ORACLE_ABORT", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++                oracle_causes = [code for d in last_oracles for code in d.failure_codes]
++                emit({
++                    "phase": "local_oracle_abort", "r": r, "t": t,
++                    "oracles": [d.to_dict() for d in last_oracles],
++                })
++                return finish("LOCAL_ORACLE_ABORT", oracle_causes, last_complete_state, last_oracles)
+ 
+             z1 = res1.z.copy()
+             z2 = res2.z.copy()
+@@ -294,33 +424,46 @@
+             # A5 symmetric edge update.
+             s1 = ops.copy2_from_z1(z1)
+             s2 = ops.source2_from_z2(z2)
+-            psi1 = s1 + xi1_old + y1_old / rho
+-            psi2 = s2 + xi2_old + y2_old / rho
+-            u = project_a1(cfg, 0.5 * (psi1 + psi2))
++            u = _a5_edge_update(cfg, rho, s1, s2, xi1_old, xi2_old, y1_old, y2_old)
+ 
+-            # Exact slack and dual updates.
++            # Exact slack and inner-dual updates.
+             c = ops.target_rows(z1, z2, u)
+-            xi = -(lam + y + rho * c) / (beta + rho)
+-            y = y + rho * (c + xi)
++            xi, y = _slack_dual_update(lam, beta, rho, y, c)
+ 
+             integ_ok, integ = integrity_pass(cfg, lam, beta, xi, y, rho)
+-            if not np.all(np.isfinite(np.concatenate([z1, z2, u, xi, y]))):
+-                causes = ["NUMERICAL_NAN_INF"]
+-                metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-                causes += more
+-                return RunResult(cfg.raw["scenario_id"], "UPDATE_ABORT", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
+-            if not integ_ok:
+-                causes = ["ALGEBRAIC_INTEGRITY_FAILED"]
+-                metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-                causes += more
+-                return RunResult(cfg.raw["scenario_id"], "UPDATE_ABORT", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++            update_finite = bool(np.all(np.isfinite(np.concatenate([z1, z2, u, xi, y]))))
++            if not update_finite or not integ_ok:
++                update_causes: list[str] = []
++                if not update_finite:
++                    update_causes.append("NUMERICAL_NAN_INF")
++                if not integ_ok:
++                    update_causes.append("ALGEBRAIC_INTEGRITY_FAILED")
++                return finish(
++                    "UPDATE_ABORT", update_causes, last_complete_state, last_oracles,
++                    {"update_integrity": integ, "r": r, "t": t},
++                )
+ 
+             residual = _residuals(ops, rho, z1, z2, u_old, u, xi_old, xi)
+-            snapshot = RunState(z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(), beta, rho, r, t)
++            residual_ok, residual_integrity = _residual_crosscheck_pass(cfg, residual)
++            if not residual_ok:
++                emit({
++                    "phase": "residual_integrity_abort", "r": r, "t": t,
++                    "residuals": residual, "crosscheck": residual_integrity,
++                })
++                return finish(
++                    "UPDATE_ABORT", ["ALGEBRAIC_INTEGRITY_FAILED"],
++                    last_complete_state, last_oracles,
++                )
++
++            snapshot = RunState(
++                z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(),
++                beta, rho, r, t,
++            )
+             last_complete_state = snapshot
+             emit({
+                 "phase": "inner_complete", "r": r, "t": t,
+                 "residuals": residual,
++                "residual_crosscheck": residual_integrity,
+                 "integrity": integ,
+                 "oracles": [d1.to_dict(), d2.to_dict()],
+             })
+@@ -333,19 +476,33 @@
+                 break
+ 
+         if not inner_completed:
+-            causes = ["MAX_INNER_ITERATIONS"]
+-            metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-            causes += more
+-            return RunResult(cfg.raw["scenario_id"], "MAX_INNER_ITERATIONS", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++            # A complete iteration at t=max that passed the stop test would already
++            # have broken above; reaching here is genuine cap exhaustion.
++            return finish(
++                "MAX_INNER_ITERATIONS", ["MAX_INNER_ITERATIONS"],
++                last_complete_state, last_oracles,
++            )
+ 
+         # Complete outer output and finite reporting predicates.
+-        current_state = RunState(z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(), beta, rho, r, t)
++        current_state = RunState(
++            z1.copy(), z2.copy(), u.copy(), xi.copy(), y.copy(), lam.copy(),
++            beta, rho, r, t,
++        )
+         last_complete_state = current_state
+-        current_tcc = tcc_metrics(ops, z1, z2, u)
+-        current_phys = physical_postcheck_numeric(cfg, ops, z1, z2)
+-        current_integ_ok, current_integ = integrity_pass(cfg, lam, beta, xi, y, rho)
+-        current_obj = _objective_metrics(local1, local2, z1, z2)
+-        pass_outer = _outer_stop_predicate(cfg, xi, current_tcc, current_phys, current_integ_ok, last_oracles)
++        try:
++            current_tcc = tcc_metrics(ops, z1, z2, u)
++            current_phys = physical_postcheck_numeric(cfg, ops, z1, z2)
++            current_integ_ok, current_integ = integrity_pass(cfg, lam, beta, xi, y, rho)
++            current_obj = _objective_metrics(local1, local2, z1, z2)
++        except Exception as exc:
++            return finish(
++                "POSTCHECK_EVALUATION_FAILED", ["POSTCHECK_EVALUATION_FAILED"],
++                current_state, last_oracles, {"exception": repr(exc)},
++            )
++
++        pass_outer = _outer_stop_predicate(
++            cfg, xi, current_tcc, current_phys, current_integ_ok, last_oracles,
++        )
+         consecutive_outer_passes = consecutive_outer_passes + 1 if pass_outer else 0
+         emit({
+             "phase": "outer_complete", "r": r, "t": t,
+@@ -358,21 +515,28 @@
+         })
+ 
+         if consecutive_outer_passes >= 2:
+-            metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, current_state, last_oracles)
+-            causes = more
+-            return RunResult(cfg.raw["scenario_id"], "FINITE_OUTER_STOP", _primary(causes), list(dict.fromkeys(causes)), current_state, history, metrics, statuses, time.monotonic() - start_time)
+-
+-        # Published Algorithm-2 outer updates; log output separately from next params.
+-        xi_norm = float(np.linalg.norm(xi))
+-        prev_norm = float(np.linalg.norm(xi_outer_prev))
+-        lam_next = np.clip(lam + beta * xi, float(cfg.a["lambda_lower"]), float(cfg.a["lambda_upper"]))
+-        beta_next = beta if xi_norm <= float(cfg.a["omega"]) * prev_norm else float(cfg.a["vartheta"]) * beta
++            return finish("FINITE_OUTER_STOP", [], current_state, last_oracles)
++
++        # Published Algorithm-2 outer updates; current output is already logged and
++        # remains distinct from next-iteration parameters.
++        lam_next, beta_next, rho_next = _outer_parameter_update(
++            cfg, lam, beta, xi, xi_outer_prev,
++        )
+         xi_outer_prev = xi.copy()
+         lam = lam_next
+         beta = float(beta_next)
+-        rho = 2.0 * beta
+-
+-    causes = ["MAX_OUTER_ITERATIONS"]
+-    metrics, statuses, more = _final_metrics(cfg, ops, local1, local2, last_complete_state, last_oracles)
+-    causes += more
+-    return RunResult(cfg.raw["scenario_id"], "MAX_OUTER_ITERATIONS", _primary(causes), list(dict.fromkeys(causes)), last_complete_state, history, metrics, statuses, time.monotonic() - start_time)
++        rho = float(rho_next)
++        if not (
++            np.all(np.isfinite(lam)) and np.isfinite(beta) and np.isfinite(rho)
++            and abs(rho - 2.0 * beta) <= float(cfg.t["integrity_relative"]) * max(1.0, abs(rho), abs(2.0 * beta))
++        ):
++            return finish(
++                "UPDATE_ABORT", ["ALGEBRAIC_INTEGRITY_FAILED"],
++                current_state, last_oracles,
++                {"phase_detail": "outer_parameter_update"},
++            )
++
++    return finish(
++        "MAX_OUTER_ITERATIONS", ["MAX_OUTER_ITERATIONS"],
++        last_complete_state, last_oracles,
++    )
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_algorithm_updates.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_backend_multiplier_order.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_config_freeze.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_control_flow.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_derivative_component.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_environment.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_geometry_extended.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_hover_backend_component.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_json_logging.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_local_nlp_contract.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_physical_source_semantics.py
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_residual_integrity.py
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/tests/test_residuals.py /mnt/data/model0d_alg2_numerics_work/tests/test_residuals.py
+--- /mnt/data/model0d_step1_baseline_extract/tests/test_residuals.py	2026-09-11 14:20:41.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/tests/test_residuals.py	2026-09-11 14:38:39.627601426 +0000
+@@ -21,3 +21,18 @@
+     vals = _residuals(ops, 4.0, z1, z2, u_old, u_new, xi_old, xi_new)
+     assert vals['R1_crosscheck_abs'] <= 1e-12
+     assert vals['R2_crosscheck_abs'] <= 1e-12
++
++
++def test_R3_is_complete_half_row_norm():
++    cfg = load_config(ROOT / 'configs' / 'baseline_2uav_0obs.json')
++    ops = assemble_tcc(cfg)
++    rng = np.random.default_rng(9)
++    z1 = rng.normal(size=ops.d1)
++    z2 = rng.normal(size=ops.d2)
++    u_old = rng.normal(size=ops.Q)
++    u_new = rng.normal(size=ops.Q)
++    xi_old = rng.normal(size=ops.m)
++    xi_new = rng.normal(size=ops.m)
++    vals = _residuals(ops, 4.0, z1, z2, u_old, u_new, xi_old, xi_new)
++    expected = np.linalg.norm(ops.target_rows(z1, z2, u_new) + xi_new)
++    np.testing.assert_allclose(vals['R3'], expected, atol=1e-14, rtol=1e-14)
+Only in /mnt/data/model0d_alg2_numerics_work/tests: test_run_entrypoint_guard.py
+diff -ru '--exclude=__pycache__' '--exclude=.pytest_cache' '--exclude=.coverage' '--exclude=verification' '--exclude=runs' '--exclude=plots' /mnt/data/model0d_step1_baseline_extract/tests/test_structure.py /mnt/data/model0d_alg2_numerics_work/tests/test_structure.py
+--- /mnt/data/model0d_step1_baseline_extract/tests/test_structure.py	2026-09-11 14:20:41.000000000 +0000
++++ /mnt/data/model0d_alg2_numerics_work/tests/test_structure.py	2026-09-11 14:39:40.304843157 +0000
+@@ -37,3 +37,37 @@
+     assert sum(m.family == 'uav' for m in l2.metas) == 0
+     assert sum(m.family == 'A1' for m in l1.metas) == 32
+     assert sum(m.family == 'A1' for m in l2.metas) == 0
++
++
++def test_fixed_prefix_selector_and_architecture_legality():
++    cfg = load_config(ROOT / 'configs' / 'baseline_2uav_0obs.json')
++    ops = assemble_tcc(cfg)
++    z1, z2, u = stationary_exact_tcc_initialization(cfg, ops)
++    # Free coordinates exclude p_i^0; insertion reconstructs it from frozen data.
++    from src.diagnostics import source_trajectories
++    p1, p2 = source_trajectories(cfg, ops, z1, z2)
++    np.testing.assert_allclose(p1[0], cfg.starts[0])
++    np.testing.assert_allclose(p2[0], cfg.starts[1])
++    np.testing.assert_allclose(p1[1:], ops.source1_from_z1(z1).reshape(cfg.K, cfg.q))
++    np.testing.assert_allclose(p2[1:], ops.source2_from_z2(z2).reshape(cfg.K, cfg.q))
++    # W is strictly inside B, and the unique equality/reduction edge is legal.
++    assert np.all(cfg.a1_lower < cfg.workspace_lower)
++    assert np.all(cfg.workspace_upper < cfg.a1_upper)
++    assert cfg.raw['tcc']['source_2_equality_edge'] == [1, 2]
++    assert cfg.raw['tcc']['reduction_tree_edge'] == [1, 2]
++    assert len({(1, 2)}) == 1  # E^all cardinality for N=2
++
++
++def test_stationary_exact_lift_is_feasible_for_both_local_domains_and_a1():
++    cfg = load_config(ROOT / 'configs' / 'baseline_2uav_0obs.json')
++    ops = assemble_tcc(cfg)
++    l1 = build_local_nlp(1, cfg, ops)
++    l2 = build_local_nlp(2, cfg, ops)
++    z1, z2, u = stationary_exact_tcc_initialization(cfg, ops)
++    g1 = l1.eval_g(z1)
++    g2 = l2.eval_g(z2)
++    assert np.max(g1) <= 0.0
++    assert np.max(g2) <= 0.0
++    assert np.all(u.reshape(cfg.K, cfg.q) >= cfg.a1_lower)
++    assert np.all(u.reshape(cfg.K, cfg.q) <= cfg.a1_upper)
++    np.testing.assert_allclose(ops.target_rows(z1, z2, u), 0.0, atol=0.0, rtol=0.0)

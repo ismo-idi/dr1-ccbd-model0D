@@ -1,0 +1,3 @@
+# Preserve every file byte-for-byte: the SHA-256 manifests in this
+# repository must keep verifying after a clone.
+* -text

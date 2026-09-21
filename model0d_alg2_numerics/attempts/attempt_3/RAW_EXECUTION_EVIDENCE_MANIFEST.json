@@ -1,0 +1,82 @@
+{
+  "external_closure_artifacts": [
+    {
+      "artifact": "Attempt3_CheckpointC_Execution_18SEP2026.tar.gz",
+      "sha256": "070b7f979c6179c0f2a4674e1a302acadcf6a3b7648ba69e4e1534f34f7c1698",
+      "size_bytes": 18082405
+    },
+    {
+      "artifact": "Attempt3_CheckpointAB_Freeze_18SEP2026.zip",
+      "sha256": "64811b6b87d576f718c61841298ea5075234ee00ff2f1d01eef07c8a267624da",
+      "size_bytes": 64981
+    },
+    {
+      "artifact": "Attempt3_U4_Certification_18SEP2026.zip",
+      "sha256": "7074233622feb8c779eff19b866d164476f45372548a51eae95b302d9c50da9b",
+      "size_bytes": 42350
+    }
+  ],
+  "note": "Large raw event/summary logs are preserved in the immutable Checkpoint-C package delivered with the closure. The repository keeps compact summaries, configs, environments, final_state.npz, exact source snapshot, tests, and post-certification evidence. No simulation was rerun during closure.",
+  "raw_run_files": [
+    {
+      "committed_in_repo": false,
+      "path": "runs/attempt3_run1/events.jsonl",
+      "sha256": "009b1911a56bb25664b1e66ff65288165a3439565a76d3705a32b93e5667ed8f",
+      "size_bytes": 30058966
+    },
+    {
+      "committed_in_repo": false,
+      "path": "runs/attempt3_run1/summary.json",
+      "sha256": "2560970ae9951afa8a5bfc8e8980fdc220eac4272b400d5d45f9f59eaf0a4ecb",
+      "size_bytes": 38580885
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run1/final_state.npz",
+      "sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46",
+      "size_bytes": 3077
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run1/config.json",
+      "sha256": "7c5ea4d3055875769b0a3251fb30b14d1d166a0099446c939762601f863c0c87",
+      "size_bytes": 3008
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run1/environment.json",
+      "sha256": "1fe2639d2e21ead3a966e1aaac14103f5a123607959ad641ff8eab7f8327f653",
+      "size_bytes": 1269
+    },
+    {
+      "committed_in_repo": false,
+      "path": "runs/attempt3_run2/events.jsonl",
+      "sha256": "a41981c4f2d5d67600e4a502fbabe52a4b6d09befbdced5635ec907a82015e80",
+      "size_bytes": 30059019
+    },
+    {
+      "committed_in_repo": false,
+      "path": "runs/attempt3_run2/summary.json",
+      "sha256": "efe9d7a0fe78ac63bf4b6c526a20601dc3dc69a9fbb368a17820ccd673480a29",
+      "size_bytes": 38580944
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run2/final_state.npz",
+      "sha256": "d444e1d5df70c64639f5a3f0de1445bc82150ec9797a7b9533a76feebed58e46",
+      "size_bytes": 3077
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run2/config.json",
+      "sha256": "7c5ea4d3055875769b0a3251fb30b14d1d166a0099446c939762601f863c0c87",
+      "size_bytes": 3008
+    },
+    {
+      "committed_in_repo": true,
+      "path": "runs/attempt3_run2/environment.json",
+      "sha256": "1fe2639d2e21ead3a966e1aaac14103f5a123607959ad641ff8eab7f8327f653",
+      "size_bytes": 1269
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+--- provenance/attempt2_config_py_reference.py	2026-09-18 17:27:46.084310485 +0000
++++ src/config.py	2026-09-18 17:27:46.084057611 +0000
+@@ -156,7 +156,7 @@
+         "eps2_scale": 0.0001,
+         "eps3_scale": 0.000001,
+         "max_outer_iterations": 20,
+-        "max_inner_iterations": 100,
++        "max_inner_iterations": 1000,
+         "wall_clock_cap_s": 600.0,
+         "retry_count": 0,
+     },

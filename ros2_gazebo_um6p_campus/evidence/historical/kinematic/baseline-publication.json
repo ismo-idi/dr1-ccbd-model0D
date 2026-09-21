@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "commit": "3e8f51848bd6057005a782b31da2a25c9c7ca268",
+  "parent": "62bf3304431a9a458a8d2b4d2b6042fc4ceb5b96",
+  "branch": "Model-0_24-Aug-2026",
+  "files_added": 191,
+  "original_zip_files_preserved": 190,
+  "existing_tree_entries_preserved": 8558,
+  "zip_sha256": "6a5a8beff251cc7c8253c3d9ce0aa6dcd9b03689ef465141f0a9497ba60b7eb8",
+  "new_demo_code_included": false,
+  "branch_ref_verified": true
+}

@@ -1,0 +1,16 @@
+{
+  "1": {
+    "status": "PASS",
+    "equal_ticks": 2597,
+    "comparison": "six executed coordinates, phases and status through first COMPLETE"
+  },
+  "2": {
+    "status": "PASS",
+    "equal_ticks": 2712,
+    "comparison": "six executed coordinates, phases and status through first COMPLETE"
+  },
+  "campus": {
+    "status": "PASS",
+    "byte_identical_files": 67
+  }
+}
