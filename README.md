@@ -14,6 +14,13 @@ report. It is self-contained: every result, derivation, numerical value and limi
 stated in the report itself. This repository exists so that the computations and the
 simulation environment behind it can be inspected and re-run.
 
+## The presentation
+
+[`Presentation-DR_ASSOUMANE-IDI.pdf`](Presentation-DR_ASSOUMANE-IDI.pdf) is the slide deck of the
+Predoc Research Project Defense of 25 September 2026. Its two embedded demonstration videos play
+in Adobe Acrobat Reader; other PDF viewers show a still frame. The same videos are available as
+MP4 files under `ros2_gazebo_um6p_campus/demo/*/media/videos/`.
+
 ## What is here
 
 ### `model0d_alg2_numerics/` — the numerical study
